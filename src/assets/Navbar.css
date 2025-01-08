@@ -1,0 +1,61 @@
+.Navbar
+{
+   position:fixed;
+   width:100%;
+   background-Color:rgb(17, 17, 17);
+   top:0;
+   display:flex;
+   padding-Block:20px;
+   flex-direction:column;
+   align-items:center;
+   overflow:hidden;
+   height: 50px;
+   z-Index:2000;
+}
+.NavbarButton
+{
+    width: auto;
+    height: fit-content;
+}
+.NavbarButton::before
+{
+    content: "[ ";
+    color: red;
+}
+.NavbarButton::after
+{
+    content: " ]";
+    color: red;
+}
+.NavbarContainer
+{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 90vh;
+    scrollbar-width: none;
+}
+.NavbarProgramContainer
+{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    overflow: auto;
+    flex-direction: row;
+}
+.NavbarMedia
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    bottom: 0px;
+    position: fixed;
+    z-index: -1;
+    padding: 10px 0px;
+    background-color: transparent;
+    transition: 0.5s ease;
+}
+.NavbarMediaIcon
+{
+    height: 25px;
+}
