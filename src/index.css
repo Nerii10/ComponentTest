@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  width: 100vw;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -11,18 +11,22 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background-Color:rgb(27, 27, 27);
-  display: flex;
-  scrollbar-width:none;
-  place-items: center;
-  min-width: 320px;
+  background-color: rgb(27, 27, 27);
+  scrollbar-width: none;
+  width: 100%;
   min-height: 100vh;
   z-index: -1;
+  scroll-behavior: smooth;
   position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 h1 {

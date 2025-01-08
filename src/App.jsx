@@ -3,17 +3,23 @@ import Navbar from './assets/Navbar'
 import HighlightText from './assets/HighlightedText'
 import Breakline from './assets/Breakline'
 import { motion } from 'framer-motion'
+import ImageSlider from './assets/ImageSlider'
 
 function App() {
 
   return (
-    <>
+    <>\
+    <Breakline Amount={1}></Breakline>
     <Navbar></Navbar>
-    <div style={{display:"flex", justifyContent:"center"}}>
-    <div style={{width:"90%"}}>
+
     <HighlightText Text="Test test witam test test witam test" Highlight="witam"/>
-    </div>
-    </div>
+    
+    <Breakline Amount={5}></Breakline>
+    
+        <div style={{scale:"0.9"}}>
+        <ImageSlider></ImageSlider>
+        </div>
+    <Breakline Amount={1}></Breakline>
     <Breakline Amount={60}></Breakline>
 
     </>
