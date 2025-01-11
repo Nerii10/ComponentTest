@@ -38,6 +38,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
     const MainImage = {
         width: "100%",
         objectFit: "cover",
+        minHeight:"200px"
     };
 
     const PlaceholderImage = {
