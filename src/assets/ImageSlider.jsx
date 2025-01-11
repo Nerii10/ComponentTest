@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ImageSlider({ DisplayedImages, Size }) {
     
@@ -106,6 +106,19 @@ export default function ImageSlider({ DisplayedImages, Size }) {
     ] : DisplayedImages;
 
     const [CurrentImage, setCurrentImage] = useState(0);
+    const [imagesLoaded, setImagesLoaded] = useState(false);
+
+    // Funkcja do sprawdzenia, czy obrazy zostały załadowane
+    const handleImageLoad = () => {
+        setImagesLoaded(true);
+    };
+
+    useEffect(() => {
+        const imageElements = document.querySelectorAll(".preload-image");
+        imageElements.forEach(image => {
+            image.onload = handleImageLoad;
+        });
+    }, []);
 
     function handleClick(ImageNumber) {
         if (ImageNumber >= 0 && ImageNumber < Images.length) {
@@ -116,8 +129,20 @@ export default function ImageSlider({ DisplayedImages, Size }) {
     return (
         <>
             <div style={ImageSliderContainer}>
+                {/* Kontener do ładowania obrazków w tle */}
+                <div style={{ position: "absolute", width: "100%", opacity: 0, display: "none" }}>
+                    {Images.map((image, index) => (
+                        <img 
+                            key={index}
+                            className="preload-image"
+                            src={image}
+                            alt={`Preloaded ${index}`} 
+                        />
+                    ))}
+                </div>
+
                 <div style={MainImageContainer}>
-                    {/* Dodany stały placeholder z PlaceHolder.png */}
+                    {/* Placeholder Image */}
                     <img
                         src="./PlaceHolder.png"
                         alt="Placeholder"
@@ -127,16 +152,18 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                         <button style={{ backgroundColor: "transparent", width: "5px" }} onClick={() => handleClick(CurrentImage - 1)}>{"<"}</button>
                         <button style={{ backgroundColor: "transparent", padding: "0px 4px" }} onClick={() => handleClick(CurrentImage + 1)}>{">"}</button>
                     </div>
-                    <motion.img
-                        whileInView={{ scale: 1, filter: "blur(0px)" }}
-                        initial={{ scale: 1.25, filter: "blur(2px)" }}
-                        transition={{ duration: 0.5, ease: "circInOut" }}
-                        key={CurrentImage}
-                        src={Images[CurrentImage]} 
-                        style={MainImage} 
-                        alt="Main" 
-                    />
-                    <h1 style={HeadingStyle}>{CurrentImage + 1} / {Images.length}</h1> {/* Ustawiamy h1 wewnątrz kontenera z obrazkiem */}
+                    {imagesLoaded && (
+                        <motion.img
+                            whileInView={{ scale: 1, filter: "blur(0px)" }}
+                            initial={{ scale: 1.25, filter: "blur(2px)" }}
+                            transition={{ duration: 0.5, ease: "circInOut" }}
+                            key={CurrentImage}
+                            src={Images[CurrentImage]} 
+                            style={MainImage} 
+                            alt="Main" 
+                        />
+                    )}
+                    <h1 style={HeadingStyle}>{CurrentImage + 1} / {Images.length}</h1>
                 </div>
                 <div style={RestImagesContainer}>
                     {Images.map((image, index) => {
