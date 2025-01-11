@@ -101,7 +101,7 @@ useEffect(() =>{
         <div style={{height:"75px"}}></div>
         <motion.div 
         animate={animate ? { height: "100%", opacity: 1 } : { height: "50px", opacity: 1 }}
-        transition={{ duration: 1,   ease: animate ? "circOut" : "circInOut",}}
+        transition={{ duration: 1,   ease: animate ? "circInOut" : "circInOut",}}
         className='Navbar'
         >
         
