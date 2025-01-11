@@ -134,8 +134,8 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                 <div style={MainImageContainer}>
                    
                     <div style={{ position: "absolute", width: "100%", zIndex: 2, height: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <button style={{ backgroundColor: "translucent",height:"0%"}} onClick={() => handleClick(CurrentImage - 1)}>{"<"}</button>
-                        <button style={{ backgroundColor: "translucent", padding: "0px 4px",height:"0%" }} onClick={() => handleClick(CurrentImage + 1)}>{">"}</button>
+                        <button style={{ backgroundColor: "transparent",height:"100%",width:"50px"}} onClick={() => handleClick(CurrentImage - 1)}>{"<"}</button>
+                        <button style={{ backgroundColor: "transparent", padding: "0px 4px",height:"100%",width:"50px"}} onClick={() => handleClick(CurrentImage + 1)}>{">"}</button>
                     </div>
                         <motion.img
                             whileInView={{ scale: 1, filter: "blur(0px)" }}
