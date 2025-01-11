@@ -44,6 +44,7 @@ export default function ImageSlider({DisplayedImages,Size}) {
         scale:"1",
         boxShadow:"0px 0px 0px 1px grey",
         transition:"0.25s ease",
+        backgroundColor:"gray"
     }
 
     const RestImageLast = {
