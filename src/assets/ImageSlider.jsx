@@ -38,7 +38,8 @@ export default function ImageSlider({DisplayedImages,Size}) {
 
     const MainImage = {
         width: "100%",
-        minheight:"100%",
+        objectFit: "cover",
+        minHeight: "100%",
     }
 
     const RestImage = {
