@@ -6,7 +6,6 @@ export default function ImageSlider({DisplayedImages,Size}) {
     
     const ImageSliderContainer = {
         width: (!Size? "400px" : Size),
-        backgroundColor:"#0d0d0d",
         borderRadius:"20px",
         display: "flex",
         flexDirection: "column",
@@ -14,13 +13,17 @@ export default function ImageSlider({DisplayedImages,Size}) {
         gap:"20px",
         alignItems: "center",
     }
-
+    
     const MainImageContainer = {
         width: "100%",
         height: (!Size? "220px" : Size/1.8),
         overflow: "hidden",
         boxShadow:"0px 0px 0px 1px grey",
         position: "relative",
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:"black"
     }
 
     const RestImagesContainer = {
@@ -44,34 +47,36 @@ export default function ImageSlider({DisplayedImages,Size}) {
         scale:"1",
         boxShadow:"0px 0px 0px 1px grey",
         transition:"0.25s ease",
-        backgroundColor:"gray"
+        backgroundColor:"gray",
+        cursor:"pointer"
     }
 
     const RestImageLast = {
         width: "100%",
         scale:"1",
-        height: (!Size? "50px" : Size/8),
         filter:"saturate(0.1)",
+        height: (!Size? "50px" : Size/8),
         boxShadow:"0px 0px 0px 1px gray",
-        transition:"0.25s ease"
-
-
+        transition:"0.25s ease",
+        backgroundColor:"gray",
+        cursor:"pointer"
     }
     
     const RestImageLastActive={
         width: "100%",
-        scale:"0.5",
+        scale:"0.65",
         height:  (!Size? "50px" : Size/8),
-        boxShadow:"0px 0px 0px 2px white",
+        boxShadow:"0px 0px 0px 0px gray",
         backgroundColor:"gray"
     }
 
 
     const RestImageActive={
         width: "100%",
-        scale:"0.5",
+        scale:"0.65",
         height:  (!Size? "50px" : Size/8),
-        boxShadow:"0px 0px 0px 2px gray",
+        boxShadow:"0px 0px 0px 0px gray",
+        borderColor:"white",
         backgroundColor:"gray"
     }
 
@@ -90,6 +95,7 @@ export default function ImageSlider({DisplayedImages,Size}) {
     const Images = (!DisplayedImages)?[
         "/ComponentTest/Render1.png",
         "/ComponentTest/Render2.png",
+        "/ComponentTest/Render3.png",
         "/ComponentTest/Render3.png",
         "/ComponentTest/Render4.png",
         "/ComponentTest/Render4.png",
@@ -118,9 +124,9 @@ export default function ImageSlider({DisplayedImages,Size}) {
                     <button style={{ backgroundColor:"transparent",padding:"0px 4px"}} onClick={()=>handleClick(CurrentImage+1)}>{">"}</button>
                     </div>
                     <motion.img 
-                    whileInView={{scale:1,}}
-                    initial={{scale:1.5,}}
-                    transition={{duration:0.3 , ease:"circInOut"}}
+                    whileInView={{scale:1,filter:"blur(0px)"}}
+                    initial={{scale:1.25,filter:"blur(2px)"}}
+                    transition={{duration:0.5 , ease:"circInOut"}}
                     key={CurrentImage}
                     src={Images[CurrentImage]} style={MainImage} alt="Main" />
                     <h1 style={HeadingStyle}>{CurrentImage+1} / {Images.length}</h1> {/* Ustawiamy h1 wewnątrz kontenera z obrazkiem */}
@@ -141,7 +147,7 @@ export default function ImageSlider({DisplayedImages,Size}) {
                 animate={index!=3?(CurrentImage === index ? RestImageActive : RestImage):(CurrentImage >= index ? RestImageLastActive : RestImageLast)}
                 alt={`Rest Image ${index + 1}`} 
                  />             
-                 {index == 3 && <span style={{position:"absolute",userSelect:"none",pointerEvents:"none"}}>{Images.length-4}+</span>}
+                 {index == 3 && <span style={{position:"absolute",userSelect:"none",pointerEvents:"none"}}>{Images.length > 4 &&(Images.length-4+"+")}</span>}
                 </div>
                 </div>
             </> 
