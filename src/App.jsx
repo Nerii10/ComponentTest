@@ -4,6 +4,7 @@ import HighlightText from './assets/HighlightedText'
 import Breakline from './assets/Breakline'
 import { motion } from 'framer-motion'
 import ImageSlider from './assets/ImageSlider'
+import { view } from 'framer-motion/client'
 
 function App() {
 
@@ -16,9 +17,7 @@ function App() {
     
     <Breakline Amount={5}></Breakline>
     
-        <div style={{scale:"0.9"}}>
-        <ImageSlider></ImageSlider>
-        </div>
+        <ImageSlider Size={350}></ImageSlider>
     <Breakline Amount={1}></Breakline>
     <Breakline Amount={60}></Breakline>
 
