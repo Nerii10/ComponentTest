@@ -15,9 +15,27 @@ function App() {
 
     <HighlightText Text="Test test witam test test witam test" Highlight="witam"/>
     
-    <Breakline Amount={5}></Breakline>
-    
-        <ImageSlider Size={"90%"}></ImageSlider>
+    <Breakline Amount={1}></Breakline>
+        <ImageSlider Size={"90%"} DisplayedImages={[ "/ComponentTest/Render1.png",
+        "/ComponentTest/Render2.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render5.png",
+        "/ComponentTest/Render6.png",]}></ImageSlider>
+                <ImageSlider Size={"50%"} DisplayedImages={[ "/ComponentTest/Render6.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render6.png",]}></ImageSlider>
+        <ImageSlider Size={"90%"} DisplayedImages={[ "/ComponentTest/Render5.png",
+        "/ComponentTest/Render2.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render5.png",
+        "/ComponentTest/Render6.png",]}></ImageSlider>
+                <ImageSlider Size={"50%"} DisplayedImages={[ "/ComponentTest/Render1.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render4.png",
+        "/ComponentTest/Render6.png",]}></ImageSlider>
     <Breakline Amount={1}></Breakline>
     <h1>witam</h1>
     <Breakline Amount={60}></Breakline>
