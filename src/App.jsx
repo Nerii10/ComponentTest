@@ -19,6 +19,7 @@ function App() {
     
         <ImageSlider Size={"90%"}></ImageSlider>
     <Breakline Amount={1}></Breakline>
+    <h1>witam</h1>
     <Breakline Amount={60}></Breakline>
 
     </>
