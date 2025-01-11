@@ -108,17 +108,6 @@ export default function ImageSlider({ DisplayedImages, Size }) {
     const [CurrentImage, setCurrentImage] = useState(0);
     const [imagesLoaded, setImagesLoaded] = useState(false);
 
-    // Funkcja do sprawdzenia, czy obrazy zostały załadowane
-    const handleImageLoad = () => {
-        setImagesLoaded(true);
-    };
-
-    useEffect(() => {
-        const imageElements = document.querySelectorAll(".preload-image");
-        imageElements.forEach(image => {
-            image.onload = handleImageLoad;
-        });
-    }, []);
 
     function handleClick(ImageNumber) {
         if (ImageNumber >= 0 && ImageNumber < Images.length) {
@@ -129,7 +118,6 @@ export default function ImageSlider({ DisplayedImages, Size }) {
     return (
         <>
             <div style={ImageSliderContainer}>
-                {/* Kontener do ładowania obrazków w tle */}
                 <div style={{ position: "absolute", width: "100%", opacity: 0, display: "none" }}>
                     {Images.map((image, index) => (
                         <img 
@@ -142,17 +130,11 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                 </div>
 
                 <div style={MainImageContainer}>
-                    {/* Placeholder Image */}
-                    <img
-                        src="./PlaceHolder.png"
-                        alt="Placeholder"
-                        style={PlaceholderImage} // Ustawiamy opacity na 0, aby nie był widoczny
-                    />
+                   
                     <div style={{ position: "absolute", width: "100%", zIndex: 2, height: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <button style={{ backgroundColor: "transparent", width: "5px" }} onClick={() => handleClick(CurrentImage - 1)}>{"<"}</button>
                         <button style={{ backgroundColor: "transparent", padding: "0px 4px" }} onClick={() => handleClick(CurrentImage + 1)}>{">"}</button>
                     </div>
-                    {imagesLoaded && (
                         <motion.img
                             whileInView={{ scale: 1, filter: "blur(0px)" }}
                             initial={{ scale: 1.25, filter: "blur(2px)" }}
@@ -162,7 +144,6 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                             style={MainImage} 
                             alt="Main" 
                         />
-                    )}
                     <h1 style={HeadingStyle}>{CurrentImage + 1} / {Images.length}</h1>
                 </div>
                 <div style={RestImagesContainer}>
