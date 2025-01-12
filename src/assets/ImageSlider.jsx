@@ -29,6 +29,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
     const RestImagesContainer = {
         width: "100%",
         display: "flex",
+        aspectRatio:"1 / 0.12",
         alignItems: "center",
         overflow: "hidden",
         gap: "6.8%",
