@@ -17,7 +17,7 @@ function App() {
     
     <Breakline Amount={1}></Breakline>
         <ImageSlider Size={"90%"} DisplayedImages={[ "/ComponentTest/Render1.png",
-        "/ComponentTest/Render2.png",
+        "/ComponentTest/Render4.png",
         "/ComponentTest/Render4.png",
         "/ComponentTest/Render5.png",
         "/ComponentTest/Render6.png",]}></ImageSlider>
