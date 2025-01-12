@@ -38,8 +38,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
 
     const MainImage = {
         width: "100%",
-        objectFit: "cover",
-        minHeight:"200px"
+        aspectRatio: "1 / 0.6"
     };
 
     const PlaceholderImage = {
