@@ -51,7 +51,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
 
     const RestImage = {
         width: "100%",
-        aspectRatio:" 1 / 0.6",
+        aspectRatio:"1 / 0.6",
         scale: "1",
         boxShadow: "0px 0px 0px 1px grey",
         transition: "0.25s ease",
@@ -153,7 +153,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                         return (
                             (index < 4 && 
                                 <>
-                                    <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", backgroundImage: "url(./Selected.png)", backgroundSize: "100% 100%", transition: "2s ease" }}>
+                                    <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", backgroundImage: "url(./Selected.png)", backgroundSize: "100% 100%", transition: "2s ease",aspectRatio:"1/0.6" }}>
                                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                             <motion.img 
                                                 onClick={() => handleClick(index)} 
