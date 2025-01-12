@@ -22,7 +22,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "black",
+        backgroundColor: "gray",
         transition:"1s ease"
     };
 
@@ -43,14 +43,14 @@ export default function ImageSlider({ DisplayedImages, Size }) {
 
     const PlaceholderImage = {
         width: "100%",
-        opacity: 0, // Obrazek będzie niewidoczny, ale wpłynie na wysokość
+        opacity: 0,
         position: "absolute",
         zIndex: -1,
     };
 
     const RestImage = {
         width: "100%",
-        height: (!Size ? "50px" : Size / 8),
+        aspectRatio:" 1 / 0.6",
         scale: "1",
         boxShadow: "0px 0px 0px 1px grey",
         transition: "0.25s ease",
@@ -60,9 +60,9 @@ export default function ImageSlider({ DisplayedImages, Size }) {
 
     const RestImageLast = {
         width: "100%",
+        aspectRatio:" 1 / 0.6",
         scale: "1",
         filter: "saturate(0.1)",
-        height: (!Size ? "50px" : Size / 8),
         boxShadow: "0px 0px 0px 1px gray",
         transition: "0.25s ease",
         backgroundColor: "gray",
