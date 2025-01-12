@@ -154,7 +154,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                             (index < 4 && 
                                 <>
                                     <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", backgroundImage: "url(./Selected.png)", backgroundSize: "100% 100%", transition: "2s ease",aspectRatio:"1/0.6" }}>
-                                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center",width:"100%", aspectRatio:"1/0.6" }}>
                                             <motion.img 
                                                 onClick={() => handleClick(index)} 
                                                 key={index} 
