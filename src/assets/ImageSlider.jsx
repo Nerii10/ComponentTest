@@ -119,7 +119,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
     }
     
     function handleDrag(offset){
-        const treshold = 50;
+        const treshold = 500;
 
         if(offset > treshold) {handleClick(CurrentImage - 1)} else{
             if(offset*-1 > treshold) {handleClick(CurrentImage + 1)}
