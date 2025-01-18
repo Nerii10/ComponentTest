@@ -149,12 +149,12 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                         <motion.img
                             drag="x"
                             dragElastic={0.25}
-                            whileDrag={{scale:1.4}}
+                            whileDrag={{scale:0.8}}
                             onDragEnd={(e, info) => handleDrag(info.offset.x)}
                             dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
                             whileInView={{ scale: 1, filter: "blur(0px)" , }}
                             initial={{ scale: 1.4, filter: "blur(2px)", }}
-                            transition={{ duration: 0.5, ease: "circInOut" }}
+                            transition={{ duration: 0.25, ease: "circInOut" }}
                             key={CurrentImage}
                             src={Images[CurrentImage]} 
                             style={MainImage} 

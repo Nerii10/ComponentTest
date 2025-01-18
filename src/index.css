@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'CONSOLA';
-  src: url('/CONSOLA.ttf') format('truetype');
+  src: url('/ComponentTest/CONSOLA.TTF') format('truetype');
   font-weight: 300;
 }
 
 @font-face {
   font-family: 'CONSOLA';
-  src: url('/CONSOLA.TTF') format('truetype');
+  src: url('/ComponentTest/CONSOLA.TTF') format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'CONSOLA';
-  src: url('/CONSOLAB.TTF') format('truetype');
+  src: url('/ComponentTest/CONSOLA.TTF') format('truetype');
   font-weight: 700; 
 }
 
@@ -25,7 +25,7 @@
   width: 100vw;
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #ff0000;
+  background-color: #242424;
   scrollbar-width:none;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

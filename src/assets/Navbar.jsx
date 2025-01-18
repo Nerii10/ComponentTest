@@ -197,6 +197,7 @@ useEffect(() =>{
                             <motion.img
                             variants={MotionVariant((animate ? 0.5 + (0.1*(index+1)) :  0))} 
                             initial="hidden" 
+                            key={index}
                             animate={animate ? "show" : "hidden" }
                             viewport={{once:false}}
                             src={media}
