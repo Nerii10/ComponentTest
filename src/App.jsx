@@ -13,7 +13,7 @@ function App() {
     <Breakline Amount={1}></Breakline>
     <Navbar></Navbar>
 
-    <HighlightText Text="Test test witam test test witam test" Highlight="witam"/>
+    <HighlightText Text="Test test witam test test witameeee test" Highlight="witam"/>
     
     <Breakline Amount={1}></Breakline>
         <ImageSlider Size={"70%"} DisplayedImages={[ "/ComponentTest/Render1.png",
