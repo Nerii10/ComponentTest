@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { tr } from "framer-motion/client";
 import { useState, useEffect } from "react";
 
 export default function ImageSlider({ DisplayedImages, Size }) {
@@ -22,7 +23,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "gray",
+        backgroundColor: "transparent",
         transition:"1s ease"
     };
 
@@ -39,7 +40,8 @@ export default function ImageSlider({ DisplayedImages, Size }) {
 
     const MainImage = {
         width: "100%",
-        aspectRatio: "1 / 0.6"
+        aspectRatio: "1 / 0.6",
+        zIndex:2
     };
 
     const PlaceholderImage = {
@@ -83,7 +85,6 @@ export default function ImageSlider({ DisplayedImages, Size }) {
         scale: "0.65",
         height: (!Size ? "50px" : Size / 8),
         boxShadow: "0px 0px 0px 0px gray",
-        borderColor: "white",
         backgroundColor: "gray"
     };
 
@@ -116,6 +117,14 @@ export default function ImageSlider({ DisplayedImages, Size }) {
             setCurrentImage(ImageNumber);
         }
     }
+    
+    function handleDrag(offset){
+        const treshold = 50;
+
+        if(offset > treshold) {handleClick(CurrentImage - 1)} else{
+            if(offset*-1 > treshold) {handleClick(CurrentImage + 1)}
+        }
+    }
 
     return (
         <>
@@ -133,13 +142,18 @@ export default function ImageSlider({ DisplayedImages, Size }) {
 
                 <div style={MainImageContainer}>
                    
-                    <div style={{ position: "absolute", width: "100%", zIndex: 2, height: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <button style={{ backgroundColor: "transparent",height:"100%",width:"50px"}} onClick={() => handleClick(CurrentImage - 1)}>{"<"}</button>
-                        <button style={{ backgroundColor: "transparent", padding: "0px 4px",height:"100%",width:"50px"}} onClick={() => handleClick(CurrentImage + 1)}>{">"}</button>
+                    <div style={{ position: "absolute", width: "100%", height: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <button style={{ backgroundColor: "transparent",height:"100%",width:"50px",zIndex:3}} onClick={() => handleClick(CurrentImage - 1)}>{"<"}</button>
+                        <button style={{ backgroundColor: "transparent", padding: "0px 4px",height:"100%",width:"50px",zIndex:3}} onClick={() => handleClick(CurrentImage + 1)}>{">"}</button>
                     </div>
                         <motion.img
-                            whileInView={{ scale: 1, filter: "blur(0px)" }}
-                            initial={{ scale: 1.25, filter: "blur(2px)" }}
+                            drag="x"
+                            dragElastic={0.25}
+                            whileDrag={{scale:1.4}}
+                            onDragEnd={(e, info) => handleDrag(info.offset.x)}
+                            dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+                            whileInView={{ scale: 1, filter: "blur(0px)" , }}
+                            initial={{ scale: 1.4, filter: "blur(2px)", }}
                             transition={{ duration: 0.5, ease: "circInOut" }}
                             key={CurrentImage}
                             src={Images[CurrentImage]} 
@@ -156,6 +170,7 @@ export default function ImageSlider({ DisplayedImages, Size }) {
                                     <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", backgroundImage: "url(./Selected.png)", backgroundSize: "100% 100%", transition: "2s ease",aspectRatio:"1/0.6" }}>
                                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center",width:"100%", aspectRatio:"1/0.6" }}>
                                             <motion.img 
+                                            
                                                 onClick={() => handleClick(index)} 
                                                 key={index} 
                                                 src={image} 
