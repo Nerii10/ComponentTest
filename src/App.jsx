@@ -5,11 +5,12 @@ import Breakline from './assets/Breakline'
 import { motion } from 'framer-motion'
 import ImageSlider from './assets/ImageSlider'
 import { view } from 'framer-motion/client'
+import Footer from './assets/Footer'
 
 function App() {
 
   return (
-    <>\
+    <>
     <Breakline Amount={1}></Breakline>
     <Navbar></Navbar>
 
@@ -25,7 +26,7 @@ function App() {
     <Breakline Amount={1}></Breakline>
     <h1>witam</h1>
     <Breakline Amount={60}></Breakline>
-
+    <Footer></Footer>
     </>
   )
 }
