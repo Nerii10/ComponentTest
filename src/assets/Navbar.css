@@ -2,7 +2,7 @@
 {
    position:fixed;
    width:100%;
-   background-Color:rgb(17, 17, 17);
+   background-Color:rgb(5, 5, 5);
    top:0;
    display:flex;
    padding-Block:20px;
@@ -31,16 +31,19 @@
 {
     overflow-y: auto;
     overflow-x: hidden;
+    width: 100%;
     height: 90vh;
     scrollbar-width: none;
 }
-.NavbarProgramContainer
+
+.NavbarProgramsContainer
 {
     height: 150px;
     display: flex;
     align-items: center;
     gap: 5px;
-    overflow: auto;
+    overflow-X: auto;
+    overflow-Y: hidden;
     flex-direction: row;
 }
 .NavbarMedia
@@ -48,6 +51,7 @@
     display: flex;
     flex-wrap: wrap;
     gap:20px;
+    
     bottom: 0px;
     position: fixed;
     z-index: -1;
@@ -58,4 +62,72 @@
 .NavbarMediaIcon
 {
     height: 25px;
+}
+
+@media screen and (max-width:600px){
+  
+    
+    .Navbar
+    {
+       position:fixed;
+       width:100%;
+       background-Color:rgb(5, 5, 5);
+       top:0;
+       display:flex;
+       padding-Block:20px;
+       flex-direction:column;
+       align-items:center;
+       clip-path: inset(0 0 0 0);
+       height: 50px;
+       z-Index:2000;
+    }
+    .NavbarButton
+    {
+        width: auto;
+        height: fit-content;
+    }
+    .NavbarButton::before
+    {
+        content: "[ ";
+        color: red;
+    }
+    .NavbarButton::after
+    {
+        content: " ]";
+        color: red;
+    }
+    .NavbarContainer
+    {
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        height: 90vh;
+        scrollbar-width: none;
+    }
+    .NavbarProgramContainer
+    {
+        text-align:start;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        overflow: auto;
+        flex-direction: row;
+    }
+    .NavbarMedia
+    {
+        display: flex;
+        flex-wrap: wrap;
+        gap:20px;
+        bottom: 0px;
+        position: fixed;
+        z-index: -1;
+        padding: 10px 0px;
+        background-color: transparent;
+        transition: 0.5s ease;
+    }
+    .NavbarMediaIcon
+    {
+        height: 25px;
+    }
 }

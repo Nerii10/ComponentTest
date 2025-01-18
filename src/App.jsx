@@ -17,7 +17,7 @@ function App() {
     <HighlightText Text="Test test witam test test witameeee test" Highlight="witam"/>
     
     <Breakline Amount={1}></Breakline>
-        <ImageSlider Size={"70%"} DisplayedImages={[ "/ComponentTest/Render1.png",
+        <ImageSlider Size={"90%"} DisplayedImages={[ "/ComponentTest/Render1.png",
         "/ComponentTest/Render4.png",
         "/ComponentTest/Render4.png",
         "/ComponentTest/Render5.png",

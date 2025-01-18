@@ -12,14 +12,14 @@
 
 @font-face {
   font-family: 'CONSOLA';
-  src: url('/ComponentTest/CONSOLA.TTF') format('truetype');
+  src: url('/ComponentTest/CONSOLAB.TTF') format('truetype');
   font-weight: 700; 
 }
 
 
 
 :root {
-  font-family: Consola;
+  font-family:  CONSOLA;
   line-height: 1.5;
   font-weight: 400;
   width: 100vw;

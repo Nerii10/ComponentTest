@@ -76,7 +76,34 @@ const MotionVariant3 = (delay) => ({
     },
 });
 
-const Programs = []
+const Programs = [
+    "ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee","ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee","ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee","ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee","ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee",
+    "ee",
+]
 
 const Media = 
 [
@@ -124,7 +151,7 @@ useEffect(() =>{
                         animate={animate ? "show" : "hidden" }
                         viewport={{once:false}}
                         >
-                            <h2>About</h2>
+                            <h2>Home</h2>
                         </motion.div>
 
                         <motion.div
@@ -134,7 +161,7 @@ useEffect(() =>{
                         viewport={{once:false}}
                         >
                             <hr></hr>
-                            <h2>News</h2>
+                            <h2>Unreal Engine</h2>
                         </motion.div>
 
                         <motion.div
@@ -144,7 +171,7 @@ useEffect(() =>{
                         viewport={{once:false}}
                         >
                             <hr></hr>
-                            <h2>Careers</h2>
+                            <h2>Web Development</h2>
                         </motion.div>
 
                         <motion.div
@@ -154,7 +181,7 @@ useEffect(() =>{
                         viewport={{once:false}}
                         >
                             <hr></hr>
-                            <h2>Comic Books</h2>
+                            <h2>Blender</h2>
                         </motion.div>
 
                         <motion.div

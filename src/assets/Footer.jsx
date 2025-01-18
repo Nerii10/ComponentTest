@@ -34,7 +34,7 @@ export default function Footer()
                                 key={index}
                                 viewport={{once:true}}
                                 whileHover={{scale:1.2}}
-                                transition={{duration:0.25, ease:"circInOut", delay: (index+1)*0.1,type:"spring"}}
+                                transition={{duration:0.25, ease:"linear", delay: (index+1)*0.1,type:"spring"}}
                                 href={Element.link}
                             >
                                 {Element.name}
@@ -51,7 +51,7 @@ export default function Footer()
                     style={{overflow:"hidden",textWrap:"nowrap"}}
                     transition={{duration:1, ease:"circInOut",type:"spring",delay:0.3}}
                     viewport={{once:true}}
-                    >Designed by mikolaj</motion.h2>
+                    >Designed by mikolaj kozak</motion.h2>
                     <motion.p
                     initial={{ opacity:0,x:-50}}
                     whileInView={{ opacity:1,x:0}}
