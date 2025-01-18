@@ -10,8 +10,6 @@ export default function Footer()
         <>
             <motion.div className="Footer"
              id="Footer"
-             initial={{ opacity:1, height:"0px"}}
-             whileInView={({opacity:1, height:"auto"})}
              style={{overflow:"hidden"}}
              viewport={{amount:0}}
              transition={{duration:0.5, ease:"circInOut",type:"spring"}}
