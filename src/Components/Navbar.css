@@ -1,0 +1,72 @@
+.NavbarContainer{
+    width: 100%;
+    background-color: rgba(0, 5, 10, 0.437);
+    backdrop-filter: blur(5px);
+    border-bottom: rgba(255, 255, 255, 0.347) 1px solid;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.NavbarListItem{
+    position: relative;
+    width: fit-content;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.NavbarListItem:hover{
+    padding-left: 20px;
+}
+
+.NavbarListItem::before{
+    position: absolute;
+    content: '';
+    width: 0%;
+    color: rgb(255, 255, 255, 0);
+    z-index: -1;
+    height: 100%;
+    padding-block: 2px;
+    top:-5%;
+    left: 0%;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    background-color: red;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.NavbarListItem:hover::before{
+    position: absolute;
+    color:rgb(255, 255, 255);
+    content: '>';
+    font-size: 17.5px;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    padding: 2px;
+    top:-5%;
+    left: 0%;
+    background-color: red;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.NavbarButton{
+    width: auto;
+    height: fit-content;
+}
+
+.NavbarButton::before{
+    content: "[ ";
+}
+
+.NavbarButton::after{
+    content: " ]";
+}

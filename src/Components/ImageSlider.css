@@ -1,0 +1,141 @@
+.ImageSliderContainer{
+    overflow: hidden;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    --ImageSize: 95%;
+
+}
+
+.Images{
+    width: 100%;
+    aspect-ratio: 1/0.56;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+}
+
+.ImageContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.Image{
+    pointer-events: none;
+    width: var(--ImageSize);
+    height: var(--ImageSize);
+    border: rgba(255, 255, 255, 0.204) 2px solid;
+}
+
+.Image img{ 
+    width: 100%;
+    height: 100%;
+}
+
+.PreviewContainer{
+    width: var(--ImageSize);
+    aspect-ratio: 1/0.2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.PreviewContainer .PreviewImageContainer{
+    width: 20%;
+    transition: 0.5s ease;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    background-image: url("/Selected.png");
+    background-position:center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.PreviewImageContainer{
+    --ease: cubic-bezier(0.075, 0.82, 0.165, 0.8);
+}
+
+.PreviewImageContainer .Image{
+    width: 100%;
+    aspect-ratio: 1/0.56;
+    border: rgba(255, 255, 255, 0.4) 0.1px solid;
+    transition: 0.5s var(--ease);
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.PreviewImageContainer .ActiveImage{
+    width: 100%;
+    aspect-ratio: 1/0.56;
+    scale: 0.7;
+    border: white 0.2px solid;
+    transition: 0.5s var(--ease);
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.PreviewImageContainer .LastImage{
+    width: 100%;
+    aspect-ratio: 1/0.56;
+    border: rgba(255, 255, 255, 0.4) 0.1px solid;
+    transition: 0.5s var(--ease);
+    pointer-events: all;
+    cursor: pointer;
+    filter: saturate(0) brightness(0.7);
+    position: relative;
+}
+
+.PreviewImageContainer .ActiveLastImage{
+    width: 100%;
+    aspect-ratio: 1/0.56;
+    border: rgba(255, 255, 255, 0.4) 0.1px solid;
+    transition: 0.5s var(--ease);
+    pointer-events: all;
+    cursor: pointer;
+    filter: saturate(0) brightness(0.7);
+    position: relative;
+    scale: 0.7;
+}
+
+.PreviewImageContainer p{
+   position: absolute;
+   font-size: 15px;
+}
+
+.Controllers{
+    position: absolute;
+    width: 89%;
+    margin-top: -15%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;   
+
+}
+
+.Controllers button{
+    pointer-events:stroke;
+    cursor: pointer;
+    border: rgba(255, 255, 255, 0.499) 1px solid;
+    width: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
+    color: rgba(255, 255, 255, 0.53);
+    background-color: rgba(2, 2, 2, 0.429);
+}
