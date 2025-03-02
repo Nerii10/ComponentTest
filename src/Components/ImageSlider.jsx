@@ -11,12 +11,12 @@ export default function ImageSlider(){
     
     function SlideChange(x){
         if(CurrentSlide <= 0 && x == -1) {
-            setCurrentSlide(CurrentSlide+0.1)
+            setCurrentSlide(CurrentSlide-0.2)
             setTimeout(()=>{setCurrentSlide(CurrentSlide)},100)
             return;
         };
         if(CurrentSlide >= images.length-1 && x == 1)  {
-            setCurrentSlide(CurrentSlide-0.1)
+            setCurrentSlide(CurrentSlide+0.2)
             setTimeout(()=>{setCurrentSlide(CurrentSlide)},100)
             return;
         };
@@ -32,6 +32,10 @@ export default function ImageSlider(){
             SlideChange(1)
         } else if (DragTransform > (Treshold)) {
             SlideChange(-1)
+        } else if (DragTransform < Treshold) {
+            setCurrentSlide(CurrentSlide-0.00001)
+            setTimeout(()=>{setCurrentSlide(CurrentSlide)},100)
+            return;
         }
     }
 
@@ -50,7 +54,7 @@ export default function ImageSlider(){
                         return(
                             <div className="ImageContainer">
                                 <div className="Image">
-                                    <img src={image}></img>
+                                    <img src={`/ComponentTest/${image}`}></img>
                                 </div>
                             </div>
                         )
@@ -67,12 +71,12 @@ export default function ImageSlider(){
                         {
                             return(
                                 <div className="PreviewImageContainer">
-                                    {index != 3 ? <motion.img src={image} 
+                                    {index != 3 ? <motion.img src={`/ComponentTest/${image}`} 
                                     onClick={()=>{setCurrentSlide(index)}} 
                                     className={CurrentSlide == index || index == 3 && CurrentSlide >=3? "ActiveImage": "Image"}
                                     ></motion.img>:
                                     
-                                    <><motion.img src={image} 
+                                    <><motion.img src={`/ComponentTest/${image}`} 
                                     onClick={()=>{setCurrentSlide(index)}} 
                                     className={CurrentSlide == index || index == 3 && CurrentSlide >=3? "ActiveLastImage": "LastImage"}
                                     ></motion.img>
