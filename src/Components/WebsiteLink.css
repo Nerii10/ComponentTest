@@ -1,0 +1,26 @@
+.WebsitelinkContainer {
+    --Width: 200px;
+    background-color: rgba(70, 70, 70, 0.534);
+    width: var(--Width);
+    height: var(--Width);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    border: 1px rgba(255, 255, 255, 0.487) solid;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.WebsitelinkIcon{
+    font-size: 90px;
+    padding: 0;
+    margin: 0;
+}
+
+.WebsitelinkName{
+    font-weight: 500;
+    color: rgb(171, 92, 246);
+}
