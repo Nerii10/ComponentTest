@@ -22,8 +22,8 @@ export default function Navbar(){
     return(
         <>
             <motion.div className={'NavbarContainer'}
-            animate={NavOpen ? {height:"100%",backgroundColor:"rgb(5, 5, 5)", borderBottom:" rgba(255, 255, 255, 0) 1px solid"} : {backgroundColor:"rgb(5, 5, 5)"}}
-            transition={{ease:NavOpen ? "circOut" : "circInOut", duration:1}}
+            animate={NavOpen ? {height:"100%",backgroundColor:"rgba(29, 29, 49, 0.78)", borderBottom:" rgba(255, 255, 255, 0) 1px solid", backdropFilter:"blur(15px)"} : {backgroundColor:"rgba(17, 17, 17, 0.55)"}}
+            transition={{ease:NavOpen ? "easeOut" : "circInOut", duration:0.7}}
             >
                 <div style={{width:"80%", display:"flex",justifyContent:"space-between",alignItems:"center",height:"60px",flexShrink:"0"}}>
                     <h1 style={{padding:0, margin:0, fontSize:"20px"}}>nerii.com</h1>
@@ -44,7 +44,7 @@ export default function Navbar(){
                                     initial={{skewX:"20deg", opacity:0, x:0,scaleY:0.2,y:50,filter:"blur(2px)"}}
                                     animate={NavOpen && {skewX:"0deg", opacity:1,filter:"blur(0px)", x:0,scaleY:1,y:0}}
                                     transition={{duration:0.5, ease:"circInOut", delay: (NavOpen ? index*0.1 : (NavbarList.length-index)*0.1), type:"tween"}}
-                                    style={{display:'flex', justifyContent:"center",flexDirection:"column", alignItems:"baseline"}}
+                                    style={{display:'flex', justifyContent:"center",flexDirection:"column", alignItems:"baseline",position:'relative'}}
                                     >
                                        
 

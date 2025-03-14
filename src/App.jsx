@@ -2,7 +2,7 @@ import { useState } from 'react'
 import HorizontalScroller from './Components/HorizontalScroller'
 import ImageSlider from './Components/ImageSlider'
 import Navbar from './Components/Navbar'
-import Websitelink from './Components/WebsiteLink'
+import Projects from './Components/Projects'
 import { TreePalm } from 'lucide-react'
 
 function App() {
@@ -12,6 +12,11 @@ function App() {
       <Navbar></Navbar>
 
       <div className="MainContainer">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
         <h1>Test</h1>
 
         <HorizontalScroller></HorizontalScroller>
@@ -34,14 +39,7 @@ function App() {
         <br></br>
         <br></br>
 
-        <Websitelink icon={"🌳"} name={"TerrariaWordle"}></Websitelink>
-        <br></br>
-        <Websitelink icon={"🌤️"} name={"WeatherApp"}></Websitelink>
-        <br></br>
-        <Websitelink icon={"📖"} name={"Fakebook"}></Websitelink>
-        <br></br>
-        <Websitelink icon={"🎥"} name={"VideoToGif"}></Websitelink>
-
+        <Projects></Projects>
 
         <br></br>
         <br></br>
