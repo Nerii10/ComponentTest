@@ -3,11 +3,10 @@
     width: var(--Width);
     display: flex;
     min-height: 120px;
-    aspect-ratio: 1/0.2;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(21, 21, 21);
     border-radius: 20px;
-    flex-direction: row;
-    border: 2px rgba(255, 255, 255, 0.3) solid;
+    flex-direction: column;
+    border: 1px rgba(255, 255, 255, 0.3) solid;
     box-sizing: border-box;
     position: relative;
     gap: 20px;
@@ -15,12 +14,12 @@
     transition: 0.25s ease;
 }
 
-.Left{
+.Top{
     gap: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     flex-shrink: 0;
 }
 
@@ -55,36 +54,48 @@
     color:gray  
 }
 
-.Right{
-    width: 40%;
+.Bottom{
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 20px;
+    flex-direction: row;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.Right img{
-    height: 70%;
-    border: 1px rgb(109, 109, 109) solid;
-    aspect-ratio: 1/0.56;
-    border-radius: 10px;
-    filter:saturate(0.1);
+.Logo{
+    width: 30px;
+    background-color: rgba(255, 255, 255, 0.395);
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px rgba(255, 255, 255, 0.452) solid;
+    box-sizing: border-box;
     transition: 0.25s ease;
+    filter:brightness(0.8);
 }
 
 .WebsitelinkContainer:hover{
     scale: 1.02;
-    border: 2px rgb(149, 0, 255) solid;
+    border: 1px rgb(149, 0, 255) solid;
 }
 
 .WebsitelinkContainer:hover .LeftTop h2{ 
     color:rgb(200, 90, 255);
-    gap:5px;
+    gap:5px; 
 }
 
 .WebsitelinkContainer:hover .LeftTop h2::before{ 
     color:rgb(200, 90, 255);
     content: "> ";
     font-size: 20px;
+}
+
+.WebsitelinkContainer:hover .Logo{ 
+    padding: 2px;
+    background-color: rgba(199, 124, 236, 0.531);
+    filter:brightness(1);
+
 }
 
 .WebsitelinkContainer:hover .Right img{

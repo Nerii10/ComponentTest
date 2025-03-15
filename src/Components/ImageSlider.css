@@ -2,12 +2,17 @@
     overflow: hidden;
     height: fit-content;
     position: relative;
+    background-color: rgb(53, 53, 53);
+    border-radius: 25px;
+    padding: 7px;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     --ImageSize: 95%;
-
+    background-color: rgb(21, 21, 21);
+    border: 1px rgba(255, 255, 255, 0.3) solid;
 }
 
 .Images{
@@ -27,6 +32,7 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    cursor: pointer;
     margin-top: 2px;
 }
 
@@ -34,7 +40,9 @@
     pointer-events: none;
     width: var(--ImageSize);
     height: var(--ImageSize);
-    border: rgba(255, 255, 255, 0.204) 2px solid;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px rgba(255, 255, 255, 0.3) solid;
 }
 
 .Image img{ 
@@ -60,7 +68,7 @@
     align-items: center;
     background-image: url("/Selected.png");
     background-position:center;
-    background-size: 100% 100%;
+    background-size: 89% 89%;
     background-repeat: no-repeat;
 }
 
@@ -74,14 +82,16 @@
     border: rgba(255, 255, 255, 0.4) 0.1px solid;
     transition: 0.5s var(--ease);
     pointer-events: all;
+    border-radius: 0px;
     cursor: pointer;
 }
 
 .PreviewImageContainer .ActiveImage{
     width: 100%;
     aspect-ratio: 1/0.56;
+    border-radius: 0px;
     scale: 0.7;
-    border: white 0.2px solid;
+    border: rgb(18, 18, 18) 0.2px solid;
     transition: 0.5s var(--ease);
     pointer-events: all;
     cursor: pointer;

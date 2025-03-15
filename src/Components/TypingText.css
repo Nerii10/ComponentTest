@@ -1,0 +1,33 @@
+.TypingText {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(255, 255, 255, 0.356);
+    animation: type 3s steps(40) forwards, blink 1.2s infinite 1s;
+    padding-right: 5px;
+}
+
+.TypingTextReverse {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(255, 255, 255, 0.356);
+    padding-right: 5px;
+}
+
+@keyframes type {
+    0% {
+        max-width: 0;
+    }
+    100% {
+        max-width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-right-color: transparent;
+    }
+}

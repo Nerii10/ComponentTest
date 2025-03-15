@@ -1,16 +1,42 @@
 import Websitelink from "./WebsiteLink"
 import { useState, useEffect } from "react";
 import { Info } from 'lucide-react'
+import TypingText from "./TypingText";
 import './Projects.css'
 
 export default function Projects(){
 
     const data = [
-        { icon: "🌳", name: "TerrariaWordle", description: "Wordle-like game inspired by Terraria." },
-        { icon: "🌤️", name: "WeatherApp", description: "A weather forecast application using OpenWeather API." },
-        { icon: "📖", name: "Fakebook", description: "A social media platform clone with user interactions." },
-        { icon: "🎥", name: "VideoToGif", description: "Convert videos into GIFs with ease." }
+        {   
+            icon: "🌳", 
+            name: "TerrariaWordle", 
+            description: "Wordle-like game inspired by Terraria.",
+            tech: ["jsx", "js", "css", "html", "react", "framermotion"],
+            link: "https://nerii10.github.io/TerrariaWordle/"
+        },
+        {   
+            icon: "🌤️", 
+            name: "WeatherApp", 
+            description: "A weather forecast application using OpenWeather API.",
+            tech: ["jsx", "js", "css", "html", "react", "framermotion"],
+            link: "https://nerii10.github.io/WeatherApp/"
+        },
+        {   
+            icon: "📖", 
+            name: "Fakebook", 
+            description: "A social media platform clone with user interactions.",
+            tech: ["jsx", "js", "css", "html", "react", "framermotion", "node", "express", "mongodb"],
+            link: "https://nerii10.github.io/Fakebook/"
+        },
+        {   
+            icon: "🎥", 
+            name: "VideoToGif",
+            description: "Convert videos into GIFs with ease.",
+            tech: ["jsx", "js", "css", "html", "react", "framermotion"],
+            link: "https://nerii10.github.io/VideoToGif/"
+        }
     ];
+    
     
     
     const [Filtereddata, setFiltereddata] = useState(data)
@@ -29,7 +55,7 @@ export default function Projects(){
         <div className="ProjectsContainer">
 
             <div className="Info">
-                <h2>Browse my projects</h2>
+                    <TypingText Text={"My projects"} Type={"h2"}></TypingText>
             </div>
            
             <div className="ProjectSearchBar">
@@ -48,7 +74,7 @@ export default function Projects(){
                     {Filtereddata.map((entry,index) =>{
                         return(
                             <>  
-                                <Websitelink icon={entry.icon} name={entry.name} description={entry.description}></Websitelink>
+                                <Websitelink data={entry}></Websitelink>
                             </>
                         )
                     })}

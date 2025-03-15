@@ -22,8 +22,9 @@ export default function Navbar(){
     return(
         <>
             <motion.div className={'NavbarContainer'}
-            animate={NavOpen ? {height:"100%",backgroundColor:"rgba(29, 29, 49, 0.78)", borderBottom:" rgba(255, 255, 255, 0) 1px solid", backdropFilter:"blur(15px)"} : {backgroundColor:"rgba(17, 17, 17, 0.55)"}}
-            transition={{ease:NavOpen ? "easeOut" : "circInOut", duration:0.7}}
+            initial={{height:"0%"}}
+            animate={NavOpen ? {height:"100%",backgroundColor:"rgb(13, 13, 20)", borderBottom:" rgba(255, 255, 255, 0) 1px solid"} : {backgroundColor:"rgb(17, 17, 17)", height:"60px"}}
+            transition={{ease:NavOpen ? "easeOut" : "easeOut", duration:0.7}}
             >
                 <div style={{width:"80%", display:"flex",justifyContent:"space-between",alignItems:"center",height:"60px",flexShrink:"0"}}>
                     <h1 style={{padding:0, margin:0, fontSize:"20px"}}>nerii.com</h1>

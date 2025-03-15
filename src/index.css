@@ -8,16 +8,16 @@
 }
 
 .MainContainer{
-  width: 80%;
-  height: 100%;
+  width: 85%;
 }
 
 body,html{
+  --defaultbackground: rgb(16, 16, 16);
   width: 100%;
   font-family: Helvetica;
   display: flex;
   color: white;
-  background-color: rgb(29, 29, 29);
+  background-color: var(--defaultbackground);
   justify-content: center;
   height: 100%;
 }
