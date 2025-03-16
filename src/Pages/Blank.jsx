@@ -17,7 +17,7 @@ export default function Blank() {
                 <ImageSlider />
             </div>
             <br />
-            <div style={{ width: "90%" }}>
+            <div style={{ width: "90%" }} id='scroller'>
                 <HorizontalScroller />
             </div>
             <br />

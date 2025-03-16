@@ -40,7 +40,7 @@ export default function Landing({ScrollTo}){
         const Main = document.getElementById(ScrollTo);
         if (Main) {
             window.scrollTo({
-                top: Main.offsetTop,
+                top: Main.offsetTop - 80,
                 behavior: "smooth",
             });
         }

@@ -1,110 +1,98 @@
-import { useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import "./ImageSlider.css";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react"
+import { motion } from "framer-motion"
+import "./ImageSlider.css"
+import { tr } from "framer-motion/client";
+import { ChevronLeft, ChevronRight, Images, Scale } from "lucide-react";
 
-export default function ImageSlider() {
-  const images = [
-    "/Render1.png",
-    "/Render2.png",
-    "/Render4.png",
-    "/Render1.png",
-    "/Render6.png",
-  ];
-  const [currentSlide, setCurrentSlide] = useState(0);
+export default function ImageSlider(){
 
-  const slideTo = useCallback((newSlide) => {
-    if (newSlide < 0) newSlide = 0;
-    if (newSlide > images.length - 1) newSlide = images.length - 1;
-    setCurrentSlide(newSlide);
-  }, [images.length]);
+    const images = ["/Render1.png","/Render2.png", "/Render4.png", "/Render1.png", "/Render6.png",]
+    const [CurrentSlide, setCurrentSlide] = useState(0)
+    
+    function SlideChange(x){
+        if(CurrentSlide <= 0 && x == -1) {
+            setCurrentSlide(CurrentSlide-0.2)
+            setTimeout(()=>{setCurrentSlide(CurrentSlide)},100)
+            return;
+        };
+        if(CurrentSlide >= images.length-1 && x == 1)  {
+            setCurrentSlide(CurrentSlide+0.2)
+            setTimeout(()=>{setCurrentSlide(CurrentSlide)},100)
+            return;
+        };
 
-  // Zmiana slajdu o delta (1 lub -1)
-  const handleSlideChange = (delta) => {
-    if(currentSlide == 0 && delta == -1) {
-        setCurrentSlide(images.length-1)
-    } else if (currentSlide == images.length-1){
-        setCurrentSlide(0)
-    } else {
-        slideTo(currentSlide + delta);
+        setCurrentSlide(prev => (prev+x))
     }
-  };
 
-  // Obsługa zakończenia przeciągania
-  const handleDragEnd = (event, info) => {
-    const threshold = 20;
-    if (info.offset.x < -threshold) {
-      handleSlideChange(1);
-    } else if (info.offset.x > threshold) {
-      handleSlideChange(-1);
-    } else if (info.offset.x < threshold) {
-        setCurrentSlide(currentSlide + 0.0001)
-        setTimeout(()=>{
-            setCurrentSlide(currentSlide)
-        }, 10)
+    function HandleDragSlideChange(event,info){
+        const Treshold = 20;
+        const DragTransform = info.offset.x
+
+        if(DragTransform < (-1*Treshold)){
+            SlideChange(1)
+        } else if (DragTransform > (Treshold)) {
+            SlideChange(-1)
+        } else if (DragTransform < Treshold) {
+            setCurrentSlide(CurrentSlide-0.00001)
+            setTimeout(()=>{setCurrentSlide(CurrentSlide)},100)
+            return;
+        }
     }
-  };
 
-  return (
-    <div className="ImageSliderContainer">
-      <motion.div
-        drag="x"
-        dragElastic={0.1}
-        onDragEnd={handleDragEnd}
-        className="Images"
-        animate={{ x: currentSlide * -100 + "%" }}
-        transition={{ duration: 0.5, type: "spring", damping: 15 }}
-      >
-        {images.map((image, index) => (
-          <div key={index} className="ImageContainer">
-            <div className="Image">
-              <img src={`/ComponentTest/${image}`} alt={`Slide ${index}`} />
+    return(
+        <>
+            <div className="ImageSliderContainer">
+                <motion.div 
+                drag="x"
+                dragElastic={0.1}
+                onDragEnd={(event,info)=>HandleDragSlideChange(event,info)}
+                className="Images" 
+                animate={{x: (CurrentSlide*-100 +"%")}}
+                transition={{duration:0.5, type:"spring", damping:"15"}}
+                >
+                    {images.map((image,index)=>{
+                        return(
+                            <div className="ImageContainer">
+                                <div className="Image">
+                                    <img src={`/ComponentTest/${image}`}></img>
+                                </div>
+                            </div>
+                        )
+                    })}
+                 
+                </motion.div>
+                <div className="Controllers">
+                    <button onClick={()=>{SlideChange(-1)}}><ChevronLeft></ChevronLeft></button>
+                    <button onClick={()=>{SlideChange(1)}}><ChevronRight></ChevronRight></button>
+                </div>
+                <div className="PreviewContainer">
+                    {images.map((image,index)=>{
+                        if(index <= 3)
+                        {
+                            return(
+                                <div className="PreviewImageContainer">
+                                    {index != 3 ? <motion.img src={`/ComponentTest/${image}`} 
+                                    onClick={()=>{setCurrentSlide(index)}} 
+                                    className={CurrentSlide == index || index == 3 && CurrentSlide >=3? "ActiveImage": "Image"}
+                                    ></motion.img>:
+                                    
+                                    <><motion.img src={`/ComponentTest/${image}`} 
+                                    onClick={()=>{setCurrentSlide(index)}} 
+                                    className={CurrentSlide == index || index == 3 && CurrentSlide >=3? "ActiveLastImage": "LastImage"}
+                                    ></motion.img>
+                                    <p style={{pointerEvents:"none"}}>+{images.length- 4}</p> </>
+                                    }
+                                </div>
+                            )
+                        }
+                    })}
+                </div>
+                    
+               
             </div>
-          </div>
-        ))}
-      </motion.div>
-      <div className="Controllers">
-        <button onClick={() => handleSlideChange(-1)}>
-          <ChevronLeft />
-        </button>
-        <button onClick={() => handleSlideChange(1)}>
-          <ChevronRight />
-        </button>
-      </div>
-      <div className="PreviewContainer">
-        {images.slice(0, 4).map((image, index) => {
-          if (index < 3) {
-            return (
-              <div key={index} className="PreviewImageContainer">
-                <motion.img
-                  src={`/ComponentTest/${image}`}
-                  onClick={() => slideTo(index)}
-                  className={currentSlide === index ? "ActiveImage" : "Image"}
-                  alt={`Preview ${index}`}
-                />
-              </div>
-            );
-          } else {
-            return (
-              <div key={index} className="PreviewImageContainer">
-                <motion.img
-                  src={`/ComponentTest/${image}`}
-                  onClick={() => slideTo(index)}
-                  className={
-                    currentSlide >=3 ? "ActiveLastImage" : "LastImage"
-                  }
-                  alt={`Preview ${index}`}
-                />
-                {images.length > 4 && (
-                  <p style={{ pointerEvents: "none" }}>
-                    +{images.length - 4}
-                  </p>
-                )}
-              </div>
-            );
-          }
-        })}
-      </div>
-    </div>
-  );
+        </>
+    )
 }
+
+
+                    
