@@ -48,10 +48,10 @@ export default function ImageSlider(){
                 onDragEnd={(event,info)=>HandleDragSlideChange(event,info)}
                 className="Images" 
                 animate={{x: (CurrentSlide*-100 +"%")}}
-                transition={{duration:0.5, type:"spring", damping:"15"}}
+                transition={{duration:0.1, type:"spring", damping:"15"}}
                 >
                     {images.map((image,index)=>{
-                        return(
+                        return( 
                             <div className="ImageContainer">
                                 <div className="Image">
                                     <img src={`/ComponentTest/${image}`}></img>
