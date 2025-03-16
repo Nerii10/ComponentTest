@@ -1,125 +1,96 @@
 import './Navbar.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { clipPath, head } from 'framer-motion/client'
 
 export default function Navbar() {
-  const [navOpen, setNavOpen] = useState(false)
+  const [navOpen, setNavOpen] = useState(0)
+  const [anim,setAnim] = useState(0)
   const NavbarList = [
     "Main",
-    "UnrealEngine",
     "Web Development",
-    "Blender",
-    "Unity",
+    "3D Meshes",
+    "Contact",
   ]
 
-  // Warianty dla kontenera nawigacji
   const containerVariants = {
     closed: { 
       height: "100%",
-      clipPath: "inset(0px 0px 93% 0px)",
-      backgroundColor: "rgb(106, 106, 106)", 
-      borderBottom: "rgba(255, 255, 255, 0.3) 1px solid" 
+      clipPath: "polygon(00% 00%, 100% 0%, 100% 10%, 0% 10%)",
+      backgroundColor: "rgb(91, 91, 91)", 
     },
     open: { 
       height: "100%",
-      clipPath: "inset(0px 0px 0% 0px)",
-      backgroundColor: "rgb(17, 17, 17)", 
-      borderBottom: "rgba(255, 255, 255, 0) 1px solid" 
+      clipPath: "polygon(00% 0%, 100% 0%, 100% 100%, 0px 100%)",
+      backgroundColor: "rgba(80, 80, 80, 0.78)", 
     }
   }
 
-  // Warianty dla pozycji listy
   const listItemVariants = {
     hidden: { 
       skewX: "20deg", 
       opacity: 0, 
-      scaleY: 0.2, 
-      y: 50, 
+      scaleY: 0.2,
+      y: -500,
       filter: "blur(2px)" 
     },
     visible: { 
       skewX: "0deg", 
       opacity: 1, 
-      scaleY: 1, 
+      scaleY: 1,
       y: 0, 
       filter: "blur(0px)" 
     }
   }
 
-  // Warianty dla animacji linii pod elementami listy
   const hrVariants = {
-    hidden: { width: "0%", opacity: 0 },
-    visible: { width: "100%", opacity: 1 }
+    hidden: { width: "100%", opacity: 0.1 },
+    visible: { width: "100%", opacity: 0.4 },
   }
 
-  const toggleNav = () => {
-    setNavOpen(prev => !prev)
-  }
+  useEffect(()=>{
+    console.log(navOpen)
+  },[navOpen])
 
   return (
-    <motion.div 
-      className="NavbarContainer"
-      initial="closed"
-      animate={navOpen ? "open" : "closed"}
-      variants={containerVariants}
-      transition={{ ease: "circInOut", duration: 1 }}
-    >
-      <div 
-        style={{ 
-          width: "80%", 
-          display: "flex", 
-          justifyContent: "space-between", 
-          alignItems: "center", 
-          height: "60px", 
-          flexShrink: "0" 
-        }}
-      >
-        <h1 style={{ padding: 0, margin: 0, fontSize: "20px" }}>nerii.com</h1>
-        <motion.button 
-          onClick={toggleNav} 
-          className="NavbarButton"
-          whileTap={{ scale: 0.9 }}
-        >
-          OPEN
-        </motion.button>
-      </div>
+    <motion.div className='NavbarContainer'
+    variants={containerVariants}
+    initial={"closed"}
+    animate={navOpen == 1 ? "open" : "closed"}
+    onAnimationComplete={()=>(setAnim(prev=>(prev == 1 ? 0 : 1)))}
+    transition={{duration:1, ease:"circInOut"}}
+    > 
+        <div className='NavbarMain'>
+          <h1>nerii.com</h1>
+          <button onClick={()=>{setNavOpen(prev=>(prev== 1 ? 0:1))}}>Menu</button>
+        </div>
+        <br></br>
+        <div className='NavbarContent'>
+          <div className='NavbarContentList'>
+            {NavbarList.map((entry,index)=>{
+              return(
+                <>
+                  <motion.div className='NavbarListItem'
+                  variants={listItemVariants}
+                  initial={"hidden"}
+                  animate={navOpen ? "visible" :  "hidden" }
+                  transition={{duration:0.5, ease:"circInOut", delay: (0.2* index)}}
+                  >
+                      <h3 className='NavbarListItemText'>{entry}</h3>
 
-      <div style={{ display: 'flex', width: '80%', flexDirection: "column", marginTop: "10px", maxWidth:"500px",  }}>
-        {NavbarList.map((item, index) => (
-          <motion.div
-            key={item}
-            variants={listItemVariants}
-            initial="hidden"
-            animate={navOpen ? "visible" : "hidden"}
-            transition={{ 
-              duration: 0.5, 
-              ease: "circInOut", 
-              delay: navOpen ? index * 0.1 : (NavbarList.length - index) * 0.1, 
-              type: "tween" 
-            }}
-            style={{ 
-              display: 'flex', 
-              justifyContent: "center", 
-              flexDirection: "column", 
-              alignItems: "baseline", 
-              position: 'relative' 
-            }}
-          >
-            <p className="NavbarListItem">{item}</p>
-            <motion.hr
-              style={{ position: "absolute", marginTop: "50px" }}
-              variants={hrVariants}
-              initial="hidden"
-              animate={navOpen ? "visible" : "hidden"}
-              transition={{ 
-                duration: 0.5, 
-                delay: navOpen ? index * 0.1 : (NavbarList.length - index) * 0.1 
-              }}
-            />
-          </motion.div>
-        ))}
-      </div>
+                      <motion.hr
+                      style={{position:"absolute",width:"100%"}}
+                      variants={hrVariants}
+                      initial={"hidden"}
+                      animate={navOpen == 1 ? "visible" : "hidden"}
+                      transition={{duration:0.5, ease:"circInOut", delay: (0.2* index)}}
+                      ></motion.hr>
+                  </motion.div>
+                </>
+              )
+            })}
+          </div>
+         
+        </div>
     </motion.div>
   )
 }
