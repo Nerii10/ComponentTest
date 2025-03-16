@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(0)
-  const [anim,setAnim] = useState(0)
+
   const NavbarList = [
     "Main",
     "Web Development",
@@ -15,13 +15,13 @@ export default function Navbar() {
   const containerVariants = {
     closed: { 
       height: "100%",
-      clipPath: "polygon(00% 00%, 100% 0%, 100% 10%, 0% 10%)",
-      backgroundColor: "rgb(91, 91, 91)", 
+      clipPath: "polygon(00% 00%, 100% 0%, 100% 60px, 0% 60px)",
+      backgroundColor: "rgba(29, 29, 29, 0.41)", 
     },
     open: { 
       height: "100%",
       clipPath: "polygon(00% 0%, 100% 0%, 100% 100%, 0px 100%)",
-      backgroundColor: "rgba(80, 80, 80, 0.78)", 
+      backgroundColor: "rgb(21, 21, 21)", 
     }
   }
 
@@ -30,8 +30,15 @@ export default function Navbar() {
       skewX: "20deg", 
       opacity: 0, 
       scaleY: 0.2,
-      y: -500,
-      filter: "blur(2px)" 
+      y: 150,
+      filter: "blur(4px)" 
+    },
+    hidden2: { 
+      skewX: "20deg", 
+      opacity: 0, 
+      scaleY: 0.2,
+      y: -100,
+      filter: "blur(4px)" 
     },
     visible: { 
       skewX: "0deg", 
@@ -39,7 +46,7 @@ export default function Navbar() {
       scaleY: 1,
       y: 0, 
       filter: "blur(0px)" 
-    }
+    },
   }
 
   const hrVariants = {
@@ -56,8 +63,7 @@ export default function Navbar() {
     variants={containerVariants}
     initial={"closed"}
     animate={navOpen == 1 ? "open" : "closed"}
-    onAnimationComplete={()=>(setAnim(prev=>(prev == 1 ? 0 : 1)))}
-    transition={{duration:1, ease:"circInOut"}}
+    transition={{duration:0.6, ease:"circInOut", delay: !navOpen && 0.1}}
     > 
         <div className='NavbarMain'>
           <h1>nerii.com</h1>
@@ -71,9 +77,10 @@ export default function Navbar() {
                 <>
                   <motion.div className='NavbarListItem'
                   variants={listItemVariants}
-                  initial={"hidden"}
-                  animate={navOpen ? "visible" :  "hidden" }
-                  transition={{duration:0.5, ease:"circInOut", delay: (0.2* index)}}
+                  key={navOpen}
+                  initial={navOpen ? "hidden" : "visible"}
+                  animate={navOpen ? "visible": "hidden2"}
+                  transition={{duration:0.6, ease:"circInOut", delay: navOpen ? (0.05* index) : (0.05 * index)}}
                   >
                       <h3 className='NavbarListItemText'>{entry}</h3>
 
