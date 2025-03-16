@@ -1,6 +1,7 @@
 import './Navbar.css'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { clipPath, head } from 'framer-motion/client'
 
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(false)
@@ -15,14 +16,14 @@ export default function Navbar() {
   // Warianty dla kontenera nawigacji
   const containerVariants = {
     closed: { 
-      height: "60px", 
-      backgroundColor: "rgb(17, 17, 17)", 
+      height: "100%",
+      clipPath: "inset(0px 0px 93% 0px)",
+      backgroundColor: "rgb(106, 106, 106)", 
       borderBottom: "rgba(255, 255, 255, 0.3) 1px solid" 
     },
     open: { 
-      height: "100%", 
-      padding: "40px 0px",
-      display:"flex",
+      height: "100%",
+      clipPath: "inset(0px 0px 0% 0px)",
       backgroundColor: "rgb(17, 17, 17)", 
       borderBottom: "rgba(255, 255, 255, 0) 1px solid" 
     }
@@ -62,7 +63,7 @@ export default function Navbar() {
       initial="closed"
       animate={navOpen ? "open" : "closed"}
       variants={containerVariants}
-      transition={{ ease: "easeOut", duration: 0.3 }}
+      transition={{ ease: "circInOut", duration: 1 }}
     >
       <div 
         style={{ 

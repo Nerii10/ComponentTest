@@ -132,6 +132,7 @@
 .Controllers{
     position: absolute;
     width: 89%;
+    height: 50%;
     margin-top: -15%;
     display: flex;
     justify-content: space-between;
