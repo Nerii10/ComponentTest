@@ -36,8 +36,9 @@ function Test() {
   
 
   return (
-    <>{/*<Navbar></Navbar>*/}
-    {scrollProgress >= 100 && "e" }
+    <>
+    {/**/}
+    {scrollProgress >= 100 && <Navbar></Navbar> }
     
       <Landing></Landing>
       <div className="MainContainer" id='MainContainer'>
@@ -76,7 +77,6 @@ function Test() {
         <br></br>
         <br></br>
         <hr></hr>
-      <TypingText Type={"h1"} Text={"Project Gallery"}></TypingText>
 
         <Projects></Projects>
 

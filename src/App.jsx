@@ -1,13 +1,17 @@
-import { Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Test from './Pages/Test';
 import MainPage from './Pages/MainPage';
+import Blank from './Pages/Blank';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/ComponentTest/" element={<MainPage />} />
-      <Route path="/ComponentTest/Test" element={<Test />} />
-    </Routes>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/blank" element={<Blank />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
