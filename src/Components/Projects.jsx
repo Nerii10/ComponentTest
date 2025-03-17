@@ -55,7 +55,6 @@ export default function Projects(){
         <div className="ProjectsContainer">
 
             <div className="Info">
-                    <TypingText Text={"My projects"} Type={"h2"}></TypingText>
             </div>
            
             <div className="ProjectSearchBar">
