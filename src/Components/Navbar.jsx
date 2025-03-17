@@ -15,8 +15,8 @@ export default function Navbar() {
   const containerVariants = {
     closed: { 
       height: "100%",
-      clipPath: "polygon(00% 00%, 100% 0%, 100% 60px, 0% 60px)",
-      backgroundColor: "rgba(29, 29, 29, 0.41)", 
+      clipPath: "polygon(00% 00%, 100% 0%, 100% 0%, 0% 0%)",
+      backgroundColor: "rgba(29, 29, 29, 1)", 
     },
     open: { 
       height: "100%",
@@ -59,18 +59,20 @@ export default function Navbar() {
   },[navOpen])
 
   return (
-    <motion.div className='NavbarContainer'
-    variants={containerVariants}
-    initial={"closed"}
-    animate={navOpen == 1 ? "open" : "closed"}
-    transition={{duration:0.6, ease:"circInOut", delay: !navOpen && 0.1}}
-    > 
-        <div className='NavbarMain'>
+    <>
+     <div className='NavbarMain'>
           <h1>nerii.com</h1>
           <button onClick={()=>{setNavOpen(prev=>(prev== 1 ? 0:1))}}>Menu</button>
         </div>
-        <br></br>
-        <div className='NavbarContent'>
+
+      <motion.div className='NavbarContainer'
+    variants={containerVariants}
+    initial={"closed"}
+    animate={navOpen == 1 ? "open" : "closed"}
+    transition={{duration:0.4, ease:"circInOut", delay: !navOpen && 0.1}}
+    > 
+       
+       <div className='NavbarContent'>
           <div className='NavbarContentList'>
             {NavbarList.map((entry,index)=>{
               return(
@@ -98,6 +100,9 @@ export default function Navbar() {
           </div>
          
         </div>
-    </motion.div>
+      </motion.div>
+
+    </>
+   
   )
 }
