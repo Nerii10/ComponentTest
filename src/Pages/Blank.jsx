@@ -5,6 +5,7 @@ import ImageSlider from "../Components/ImageSlider";
 import HorizontalScroller from "../Components/HorizontalScroller";
 import Projects from "../Components/Projects";
 import TypingText from "../Components/TypingText";
+import Experience from "../Components/Experience";
 
 export default function Blank() {
     

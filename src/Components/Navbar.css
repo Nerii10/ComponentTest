@@ -27,9 +27,10 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0px 30px;
-    background-color: rgba(26, 26, 26, 0.643);
+    padding: 0px 20px;
+    background-color: rgb(16, 16, 16);
     box-sizing: border-box;
+    border-bottom: 1px rgba(255, 255, 255, 0.336) solid;
     height: 60px;
     margin: 0;
     top: 0px;
@@ -51,10 +52,12 @@
 .NavbarListItem{
     width: 100%;
     position: relative;
+
 }
 
 .NavbarListItemText{
     position: relative;
+    font-size: 20px;
     width: fit-content;
     font-weight: 300;
     cursor: pointer;
@@ -63,7 +66,7 @@
 }
 
 .NavbarListItemText:hover{
-    padding-left: 20px;
+    padding-left: 25px;
 }
 
 .NavbarListItemText:hover::before{
@@ -96,7 +99,16 @@
     width: 100%;
     display: flex;
     justify-content: left;
+    height: 100%;
     align-items: start;
     gap: 20px;
     flex-direction: column;
+}
+
+.NavbarContentSecond{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
 }

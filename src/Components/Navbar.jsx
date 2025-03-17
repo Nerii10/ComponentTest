@@ -9,6 +9,7 @@ export default function Navbar() {
   const NavbarList = [
     "Main",
     "Web Development",
+    "Unreal Engine",
     "3D Meshes",
     "Contact",
   ]
@@ -17,37 +18,27 @@ export default function Navbar() {
     closed: { 
       height: "100%",
       clipPath: "inset(0% 0% 100% 0%)",
-      backgroundColor: "rgb(0, 0, 0)", 
+      background: "linear-gradient(315deg, rgb(0, 0, 0),rgb(0, 0, 0))",
     },
     open: { 
       height: "100%",
       clipPath: "inset(0px 0px 0% 0px)",
-      backgroundColor: "rgb(0, 0, 0)", 
-
+      background: "linear-gradient(315deg, rgb(28, 20, 33),rgb(0, 0, 0))",
     }
   }
 
   const listItemVariants = {
     hidden: { 
-      skewX: "20deg", 
-      opacity: 0, 
-      scaleY: 0.2,
-      y: 150,
-      filter: "blur(4px)" 
+      opacity: -1, 
+      y: 120,
     },
     Close: { 
-      skewX: "20deg", 
-      opacity: 0, 
-      scaleY: 0.2,
-      y: -100,
-      filter: "blur(4px)" 
+      opacity: -1, 
+      y: -120,
     },
     Open: { 
-      skewX: "0deg", 
       opacity: 1, 
-      scaleY: 1,
       y: 0, 
-      filter: "blur(0px)" 
     },
   }
 
@@ -79,7 +70,7 @@ export default function Navbar() {
       variants={containerVariants}
       initial={"closed"}
       animate={navOpen == 1 ? "open" : "closed"}
-      transition={{duration:0.4, ease:"circInOut", delay: !navOpen && 0.1}}
+      transition={{duration:0.6, ease:"circInOut", delay: !navOpen && 0.1}}
       > 
         
         <div className='NavbarContent'>
@@ -92,24 +83,21 @@ export default function Navbar() {
                     key={Animkey}
                     initial={"hidden"}
                     animate={navOpen ? "Open": "Close"}
-                    transition={{duration:0.6, ease:"circInOut", delay: navOpen ? (0.05* index) : (0.05 * index)}}
+                    transition={{duration:0.6, ease:"circInOut", type:"spring", damping:25 ,delay: navOpen ? (0.07* index) : 0.03 * index}}
                     >
                         <h3 className='NavbarListItemText'>{entry}</h3>
-
-                        <motion.hr
-                        style={{position:"absolute",width:"100%"}}
-                        variants={hrVariants}
-                        key={Animkey}
-                        initial={"hidden"}
-                        animate={navOpen ? "Open" : "Close"}
-                        transition={{duration:0.5, ease:"circInOut"}}
-                        ></motion.hr>
                     </motion.div>
                   </>
                 )
               })}
+
             </div>
-          
+            <motion.p style={{color:"gray"}}
+            key={Animkey}
+            initial={{position:"absolute", bottom:'-200px'}}
+            animate={navOpen && {position:"absolute", bottom: "0px"}}
+            transition={{duration:0.4, ease:"circInOut", delay: navOpen ? 0.4 : 0, type:"spring", damping:23}}
+            >website under construction</motion.p>
           </div>
         </motion.div>
         </div>

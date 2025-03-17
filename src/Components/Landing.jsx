@@ -15,7 +15,8 @@ export default function Landing({ScrollTo}){
                      
                 <motion.div
     whileHover={{ scale: 1.2 }}
-    whileTap={{ scale: 0.8 }}
+    whileTap={{ scale: 0.8 , color: "rgb(181, 130, 240)", marginTop:"180px"}}
+    style={{color:"white"}}
     animate={{
         y: ["-10px", "30px"],
         scaleY: [1,1.1]
@@ -34,9 +35,9 @@ export default function Landing({ScrollTo}){
             ease: "circInOut",  // Płynne przejście
         },
         duration:0.3,
-        ease:"easeOut"
+        ease:"circInOut"
     }}
-    onClick={() => {
+    onPointerUp={() => {
         const Main = document.getElementById(ScrollTo);
         if (Main) {
             window.scrollTo({
@@ -45,8 +46,10 @@ export default function Landing({ScrollTo}){
             });
         }
     }}
+    
+    
 >
-    <ArrowDown size={80} />
+    <ArrowDown size={80}/>
 </motion.div>
 
 
