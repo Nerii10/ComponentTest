@@ -15,12 +15,12 @@ export default function Navbar() {
   const containerVariants = {
     closed: { 
       height: "100%",
-      clipPath: "polygon(00% 00%, 100% 0%, 100% 0%, 0% 0%)",
+      clipPath: "inset(0px 0px 100% 0px)",
       backgroundColor: "rgba(29, 29, 29, 1)", 
     },
     open: { 
       height: "100%",
-      clipPath: "polygon(00% 0%, 100% 0%, 100% 100%, 0px 100%)",
+      clipPath: "inset(0px 0px 0% 0px)",
       backgroundColor: "rgb(21, 21, 21)", 
     }
   }
