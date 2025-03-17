@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(0)
   const [Animkey, setAnimkey] = useState(0)
-
+  const [showNavbar, setshowNavbar] = useState(0)
+  
   const NavbarList = [
     "Main",
     "Web Development",
@@ -57,13 +58,32 @@ export default function Navbar() {
     }
   },[navOpen])
 
+  useEffect(()=>{
+    addEventListener("scroll", ()=>{
+      if(window.scrollY > window.innerHeight + 100)
+      {
+        setshowNavbar(1)
+      } else {
+        setshowNavbar(0)
+        
+      }
+    })
+  },[])
 
   return (
     <>
-     <div className='NavbarMain'>
+     <motion.div className='NavbarMain'
+     initial={{y:-100}}
+     animate={showNavbar ? {y:0} : {y:-100}}
+     transition={{type:"spring", damping:23}}
+     >
           <h1>nerii.com</h1>
-          <button onClick={()=>{setNavOpen(prev=>(prev== 1 ? 0:1))}}>Menu</button>
-        </div>
+          <motion.button onClick={()=>{setNavOpen(prev=>(prev== 1 ? 0:1))}}
+            whileHover={{scale:1.1}}
+            whileTap={{scale:0.9}}
+            
+          >{navOpen ? "close" : "open" }</motion.button>
+        </motion.div>
 
         <div className="NavbarContainerFix">
         <motion.div className='NavbarContainer'
