@@ -4,6 +4,7 @@ import Landing from "../Components/Landing";
 import ImageSlider from "../Components/ImageSlider";
 import HorizontalScroller from "../Components/HorizontalScroller";
 import Projects from "../Components/Projects";
+import TypingText from "../Components/TypingText";
 
 export default function Blank() {
     
@@ -16,6 +17,7 @@ export default function Blank() {
                 <br></br>
                 <ImageSlider />
             </div>
+           
             <br />
             <div style={{ width: "90%" }} id='scroller'>
                 <HorizontalScroller />

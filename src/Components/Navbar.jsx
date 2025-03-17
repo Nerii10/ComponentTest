@@ -15,8 +15,8 @@ export default function Navbar() {
   const containerVariants = {
     closed: { 
       height: "100%",
-      clipPath: "inset(0px 0px 100% 0px)",
-      backgroundColor: "rgba(29, 29, 29, 1)", 
+      clipPath: "inset(0% 0% 100% 0%)",
+      backgroundColor: "rgb(29, 29, 29)", 
     },
     open: { 
       height: "100%",
@@ -65,42 +65,45 @@ export default function Navbar() {
           <button onClick={()=>{setNavOpen(prev=>(prev== 1 ? 0:1))}}>Menu</button>
         </div>
 
-      <motion.div className='NavbarContainer'
-    variants={containerVariants}
-    initial={"closed"}
-    animate={navOpen == 1 ? "open" : "closed"}
-    transition={{duration:0.4, ease:"circInOut", delay: !navOpen && 0.1}}
-    > 
-       
-       <div className='NavbarContent'>
-          <div className='NavbarContentList'>
-            {NavbarList.map((entry,index)=>{
-              return(
-                <>
-                  <motion.div className='NavbarListItem'
-                  variants={listItemVariants}
-                  key={navOpen}
-                  initial={navOpen ? "hidden" : "visible"}
-                  animate={navOpen ? "visible": "hidden2"}
-                  transition={{duration:0.6, ease:"circInOut", delay: navOpen ? (0.05* index) : (0.05 * index)}}
-                  >
-                      <h3 className='NavbarListItemText'>{entry}</h3>
+        <div className="NavbarContainerFix">
+        <motion.div className='NavbarContainer'
+      variants={containerVariants}
+      initial={"closed"}
+      animate={navOpen == 1 ? "open" : "closed"}
+      transition={{duration:0.4, ease:"circInOut", delay: !navOpen && 0.1}}
+      > 
+        
+        <div className='NavbarContent'>
+            <div className='NavbarContentList'>
+              {NavbarList.map((entry,index)=>{
+                return(
+                  <>
+                    <motion.div className='NavbarListItem'
+                    variants={listItemVariants}
+                    key={navOpen}
+                    initial={navOpen ? "hidden" : "visible"}
+                    animate={navOpen ? "visible": "hidden2"}
+                    transition={{duration:0.6, ease:"circInOut", delay: navOpen ? (0.05* index) : (0.05 * index)}}
+                    >
+                        <h3 className='NavbarListItemText'>{entry}</h3>
 
-                      <motion.hr
-                      style={{position:"absolute",width:"100%"}}
-                      variants={hrVariants}
-                      initial={"hidden"}
-                      animate={navOpen == 1 ? "visible" : "hidden"}
-                      transition={{duration:0.5, ease:"circInOut", delay: (0.2* index)}}
-                      ></motion.hr>
-                  </motion.div>
-                </>
-              )
-            })}
+                        <motion.hr
+                        style={{position:"absolute",width:"100%"}}
+                        variants={hrVariants}
+                        initial={"hidden"}
+                        animate={navOpen == 1 ? "visible" : "hidden"}
+                        transition={{duration:0.5, ease:"circInOut", delay: (0.2* index)}}
+                        ></motion.hr>
+                    </motion.div>
+                  </>
+                )
+              })}
+            </div>
+          
           </div>
-         
+        </motion.div>
         </div>
-      </motion.div>
+       
 
     </>
    
