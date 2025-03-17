@@ -9,6 +9,7 @@
     flex-direction: column;
     pointer-events: all;
     clip-path: inset(0px 0px 100% 0px);
+    will-change: clip-path;
 }
 
 .NavbarContainerFix{

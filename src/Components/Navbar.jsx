@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(0)
+  const [Animkey, setAnimkey] = useState(0)
 
   const NavbarList = [
     "Main",
@@ -16,12 +17,13 @@ export default function Navbar() {
     closed: { 
       height: "100%",
       clipPath: "inset(0% 0% 100% 0%)",
-      backgroundColor: "rgb(29, 29, 29)", 
+      backgroundColor: "rgb(0, 0, 0)", 
     },
     open: { 
       height: "100%",
       clipPath: "inset(0px 0px 0% 0px)",
-      backgroundColor: "rgb(21, 21, 21)", 
+      backgroundColor: "rgb(0, 0, 0)", 
+
     }
   }
 
@@ -33,14 +35,14 @@ export default function Navbar() {
       y: 150,
       filter: "blur(4px)" 
     },
-    hidden2: { 
+    Close: { 
       skewX: "20deg", 
       opacity: 0, 
       scaleY: 0.2,
       y: -100,
       filter: "blur(4px)" 
     },
-    visible: { 
+    Open: { 
       skewX: "0deg", 
       opacity: 1, 
       scaleY: 1,
@@ -50,13 +52,20 @@ export default function Navbar() {
   }
 
   const hrVariants = {
-    hidden: { width: "100%", opacity: 0.1 },
-    visible: { width: "100%", opacity: 0.4 },
+    Close: { width: "100%", opacity: 0},
+    Open: { width: "100%", opacity: 0.4},
   }
 
   useEffect(()=>{
-    console.log(navOpen)
+    if(navOpen == 1) {
+      if(Animkey != 1) {
+        setAnimkey(prev=>(prev+1))
+      } else {
+        setAnimkey(prev=>(prev-1))
+      }
+    }
   },[navOpen])
+
 
   return (
     <>
@@ -80,9 +89,9 @@ export default function Navbar() {
                   <>
                     <motion.div className='NavbarListItem'
                     variants={listItemVariants}
-                    key={navOpen}
-                    initial={navOpen ? "hidden" : "visible"}
-                    animate={navOpen ? "visible": "hidden2"}
+                    key={Animkey}
+                    initial={"hidden"}
+                    animate={navOpen ? "Open": "Close"}
                     transition={{duration:0.6, ease:"circInOut", delay: navOpen ? (0.05* index) : (0.05 * index)}}
                     >
                         <h3 className='NavbarListItemText'>{entry}</h3>
@@ -90,9 +99,10 @@ export default function Navbar() {
                         <motion.hr
                         style={{position:"absolute",width:"100%"}}
                         variants={hrVariants}
+                        key={Animkey}
                         initial={"hidden"}
-                        animate={navOpen == 1 ? "visible" : "hidden"}
-                        transition={{duration:0.5, ease:"circInOut", delay: (0.2* index)}}
+                        animate={navOpen ? "Open" : "Close"}
+                        transition={{duration:0.5, ease:"circInOut"}}
                         ></motion.hr>
                     </motion.div>
                   </>
