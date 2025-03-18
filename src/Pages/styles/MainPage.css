@@ -77,6 +77,10 @@
     flex-direction: column;
 }
 
+.About p{
+    margin: 5px;
+}
+
 .About h1{
     border-bottom: var(--borderClassic);
 }
