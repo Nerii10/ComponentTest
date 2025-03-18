@@ -139,7 +139,7 @@ export default function MainPage(){
                     position: "absolute",
                     width: "0%",
                     height: "100%",
-                    backgroundColor: 'red',
+                    backgroundColor: 'rgb(55, 0, 255)',
                     zIndex: -1,
                     marginTop: marginTop ? marginTop : "0px"
                 }}
