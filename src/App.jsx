@@ -1,7 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Test from './Pages/Test';
 import Main from './Pages/Main/Main';
-import Blank from './Pages/Blank';
 import Blender from './Pages/Blender/blender';
 import WebDevelopment from './Pages/WebDevelopment/WebDevelopment';
 import UnrealEngine from './Pages/UnrealEngine/UnrealEngine';
