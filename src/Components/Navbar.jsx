@@ -2,7 +2,7 @@ import './Navbar.css'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-export default function Navbar() {
+export default function Navbar({hide, hideY}) {
   const [navOpen, setNavOpen] = useState(0)
   const [Animkey, setAnimkey] = useState(0)
   const [showNavbar, setshowNavbar] = useState(0)
@@ -17,12 +17,10 @@ export default function Navbar() {
 
   const containerVariants = {
     closed: { 
-      height: "100%",
       clipPath: "inset(0% 0% 100% 0%)",
       background: "linear-gradient(315deg, rgb(0, 0, 0),rgb(0, 0, 0))",
     },
     open: { 
-      height: "100%",
       clipPath: "inset(0px 0px 0% 0px)",
       background: "linear-gradient(315deg, rgb(28, 20, 33),rgb(0, 0, 0))",
     }
@@ -59,15 +57,19 @@ export default function Navbar() {
   },[navOpen])
 
   useEffect(()=>{
-    addEventListener("scroll", ()=>{
-      if(window.scrollY > window.innerHeight + 100)
-      {
-        setshowNavbar(1)
-      } else {
-        setshowNavbar(0)
-        
-      }
-    })
+    if(hide) {
+      addEventListener('scroll', ()=>{
+        console.log(window.scrollY)
+        console.log(hideY)
+        if(window.scrollY >= hideY) {
+            setshowNavbar(1)
+        } else {
+          setshowNavbar(0)
+        }
+      })
+
+      return () => {window.removeEventListener("scroll")}
+    }
   },[])
 
   return (
@@ -121,7 +123,7 @@ export default function Navbar() {
           </div>
         </motion.div>
         </div>
-       
+            
 
     </>
    

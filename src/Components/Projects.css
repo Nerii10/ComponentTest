@@ -2,11 +2,12 @@
     width: 100%;
     position: relative;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
 }
 
 .ProjectsContainer{
     width: 100%;
-    max-width: 600px;
     background-color: rgb(21, 21, 21);
     box-sizing: border-box;
     padding: 25px 25px;
@@ -19,9 +20,10 @@
     border: 1px rgb(76, 76, 76) solid;
     background-color: rgb(28, 28, 28);
     border-radius: 10px;
+    font-size: 16px;
     box-sizing: border-box;
     text-transform: capitalize;
-    padding: 10px 15px; 
+    padding: 10px 40px; 
     color:white;
 }
 
@@ -42,4 +44,33 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+}
+
+.ProjectSearchBarIcon{
+    position: absolute;
+    color:gray;
+    left: 0;
+    pointer-events: none;
+    padding: 0px 10px;
+}
+
+.ProjectSearchBarText{
+    position: absolute;
+    left: 0;
+    padding: 0px 40px;
+    color:gray;
+    font-weight: 400;
+    pointer-events: none;
+    transition: 0.25s ease;
+}
+
+.ProjectSearchBarTextActive{
+    position: absolute;
+    left: 0;
+    padding: 0px 100px;
+    color:rgba(128, 128, 128, 0);
+    font-weight: 400;
+    pointer-events: none;
+    transition: 0.25s ease;
+
 }

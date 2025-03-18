@@ -1,5 +1,6 @@
 import Websitelink from "./WebsiteLink"
 import { useState, useEffect } from "react";
+import { PackageSearch } from "lucide-react";
 import { Info } from 'lucide-react'
 import TypingText from "./TypingText";
 import './Projects.css'
@@ -58,10 +59,12 @@ export default function Projects(){
             </div>
            
             <div className="ProjectSearchBar">
-                <input type="text" placeholder="Search project name"
+                <input type="text"
                     onChange={(event) =>{setSearchname(event.target.value)}}
                     value={Searchname}
                 ></input>
+                <PackageSearch className="ProjectSearchBarIcon" size={20}></PackageSearch>
+                <p className={Searchname.length == 0 ? "ProjectSearchBarText" : "ProjectSearchBarTextActive"}>Search projects</p>
             </div>
             
             <p>Displaying {Filtereddata.length} of {data.length} projects</p>
