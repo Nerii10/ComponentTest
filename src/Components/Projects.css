@@ -29,14 +29,10 @@
 
 .Projects{
     overflow: auto;
-    background-color: rgb(28, 28, 28);
     display: flex;
-    border: 1px rgb(76, 76, 76) solid;
     flex-direction: column;
     gap:30px;
-    border-radius: 25px;
     box-sizing: border-box;
-    padding: 20px;
 }
 
 .Info{

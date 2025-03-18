@@ -204,7 +204,7 @@ export default function MainPage(){
                     
                     <div className="SkillsSummary">
                         <Info size={30}></Info>
-                        <h1 style={{margin:0}}>Skills & Technologies I Use</h1>
+                        <h1 style={{margin:0}}>Skills & Technologies</h1>
                     </div>  
                     <hr className="HrFade"></hr>
 
