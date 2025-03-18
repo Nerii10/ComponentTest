@@ -77,9 +77,6 @@
     flex-direction: column;
 }
 
-.About p{
-    margin: 5px;
-}
 
 .About h1{
     border-bottom: var(--borderClassic);
@@ -95,4 +92,23 @@
 
 .ProjectsMainContainer h1{
     border-bottom: var(--borderClassic);
+}
+
+@media only screen and (max-width:800px) {
+    .TechnologyEntry{
+        flex-shrink: 1;
+        font-size: 13px;
+        width: 30px;
+        overflow: hidden;
+        color:gray;
+     }
+
+     .TechnologyContainer{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+        row-gap: 0px;
+        flex-wrap: wrap;
+    }
 }
