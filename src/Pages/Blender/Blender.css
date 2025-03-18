@@ -1,0 +1,11 @@
+.BlenderContainer{
+    --borderClassic: 1px rgba(255, 255, 255, 0) solid;
+    width: 90%;
+    display: flex;
+    max-width: 800px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    flex-direction: column;
+}
+

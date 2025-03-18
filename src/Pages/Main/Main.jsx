@@ -1,14 +1,16 @@
-import AnimatedCounting from "../Components/AnimatedCounting"
-import Experience from "../Components/Experience"
-import HorizontalScroller from "../Components/HorizontalScroller"
-import Navbar from "../Components/Navbar"
-import Landing from "../Components/Landing"
-import Projects from "../Components/Projects"
+import AnimatedCounting from "../../Components/AnimatedCounting"
+import Experience from "../../Components/Experience"
+import HorizontalScroller from "../../Components/HorizontalScroller"
+import Navbar from "../../Components/Navbar"
+import Landing from "../../Components/Landing"
+import Projects from "../../Components/Projects"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { HashRouter,Link } from "react-router"
+import Footer from "../../Components/Footer"
 
 
-import './styles/MainPage.css'
+import './Main.css'
 
 
 import { MoveDown } from "lucide-react"
@@ -22,7 +24,7 @@ import { FileImage } from "lucide-react"
 import { User } from "lucide-react"
 import { File } from "lucide-react"
 
-export default function MainPage(){
+export default function Main(){
 
     const [Aboutseen, setAboutseen] = useState(0)
 
@@ -158,7 +160,6 @@ export default function MainPage(){
         <Navbar hide={1} hideY={"700"}></Navbar>
         <Landing ScrollTo={"Main"}></Landing>
 
-
         
         <div style={{width:"90%"}}  id="Main">
             <HorizontalScroller></HorizontalScroller>
@@ -225,7 +226,7 @@ export default function MainPage(){
                                     <p  style={{margin:0, }} className="TechnologyContainer">{element.skills.map((skill,index)=>{
                                         return(
                                             <p style={{display:"flex",alignItems:"center",gap: "10px"}} className="TechnologyEntry"> 
-                                                {skill.logo && <img src={`/ComponentTest/Logo/${skill.logo}`} className="Logo"></img>}
+                                                {skill.logo && <img src={`/ComponentTest/Logo/${skill.logo}`} className="LogoSkill"></img>}
                                                {skill.name} {" "} 
                                             </p>
                                         
@@ -254,7 +255,8 @@ export default function MainPage(){
                 </div>
         
         </div>
-         
+                    
+        <Footer></Footer>
        
         </>
     )

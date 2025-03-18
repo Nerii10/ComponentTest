@@ -16,7 +16,7 @@ export default function Landing({ScrollTo}){
                 <motion.div
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 , color: "rgb(181, 130, 240)", marginTop:"180px"}}
-            style={{color:"white"}}
+            style={{color:"white", cursor:"pointer"}}
             animate={{
                 y: ["-10px", "30px"],
                 scale: [1,0.7]

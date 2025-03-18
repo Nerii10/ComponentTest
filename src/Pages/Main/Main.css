@@ -53,7 +53,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap: 35px;
+    gap: 5px;
     row-gap: 0px;
     flex-wrap: wrap;
 }
@@ -61,7 +61,8 @@
 .TechnologyEntry{
    flex-shrink: 1;
    font-size: 13px;
-   width: 90px;
+   width: 120px;
+   white-space: wrap;
    color:gray;
 }
 
@@ -94,11 +95,22 @@
     border-bottom: var(--borderClassic);
 }
 
+.LogoSkill{
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.618);
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px rgba(255, 255, 255, 0.452) solid;
+    box-sizing: border-box;
+    transition: 0.25s ease;
+    filter:brightness(0.8);
+}
+
 @media only screen and (max-width:800px) {
     .TechnologyEntry{
         flex-shrink: 1;
         font-size: 13px;
-        width: 30px;
+        width: 45px;
         overflow: hidden;
         color:gray;
      }
@@ -110,5 +122,16 @@
         gap: 10px;
         row-gap: 0px;
         flex-wrap: wrap;
+    }
+
+    .LogoSkill{
+        width: 45px;
+        background-color: rgba(255, 255, 255, 0.721);
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px rgba(255, 255, 255, 0.452) solid;
+        box-sizing: border-box;
+        transition: 0.25s ease;
+        filter:brightness(0.8);
     }
 }
