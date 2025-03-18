@@ -160,10 +160,13 @@ export default function MainPage(){
 
 
         
+        <div style={{width:"90%"}}  id="Main">
+            <HorizontalScroller></HorizontalScroller>
+        </div>
 
+        <br></br>
 
-
-        <div className="MainPageContainer" id="Main">
+        <div className="MainPageContainer">
 
                 <motion.div className="About"
                 whileInView={()=>{setAboutseen(1)}}
@@ -192,11 +195,12 @@ export default function MainPage(){
                         
                         {" "} ,constantly exploring new tools and improving my craft.</p>
                         <p>I am always looking for new challenges and exciting projects to work on, continuing to grow as a developer and innovator.</p>
+
+
                 </motion.div>
+        
 
 
-
-                
                 
    
                 
@@ -208,9 +212,6 @@ export default function MainPage(){
                     </div>  
                     <hr className="HrFade"></hr>
 
-                    <HorizontalScroller></HorizontalScroller>
-
-                    <hr className="HrFade"></hr>
 
 
                    {Skills.map((element,index)=>{
