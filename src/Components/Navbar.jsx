@@ -110,7 +110,7 @@ export default function Navbar({ hide, hideY }) {
                   <Link 
                     to={`/${entry.link}`} 
                     style={{ textDecoration: "none", color: "white" }}
-                    onClick={() => setNavOpen(0)} // Zamykamy navbar przy kliknięciu
+                    onClick={() => {setNavOpen(0); window.scrollTo({top:0, behavior:"instant"})}} // Zamykamy navbar przy kliknięciu
                   >
                     <h3 className='NavbarListItemText'>{entry.name}</h3>
                   </Link>

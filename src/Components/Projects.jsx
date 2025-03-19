@@ -1,93 +1,59 @@
-import Websitelink from "./WebsiteLink"
 import { useState, useEffect } from "react";
 import { PackageSearch } from "lucide-react";
-import { Info } from 'lucide-react'
-import TypingText from "./TypingText";
+
+import Websitelink from "./WebsiteLink"
 import './Projects.css'
+import data from './projects.json' 
 
-export default function Projects(){
+export default function Projects({ Category }) {
+    const [filteredData, setFilteredData] = useState(data);
+    const [searchName, setSearchName] = useState("");
+    const [Projects, setProjects] = useState([])
 
-    const data = [
-        {   
-            icon: "🌳", 
-            name: "TerrariaWordle", 
-            description: "Wordle-like game inspired by Terraria.",
-            tech: ["jsx", "js", "css", "html", "react", "framermotion"],
-            link: "https://nerii10.github.io/TerrariaWordle/"
-        },
-        {   
-            icon: "🌤️", 
-            name: "WeatherApp", 
-            description: "A weather forecast application using OpenWeather API.",
-            tech: ["jsx", "js", "css", "html", "react", "framermotion"],
-            link: "https://nerii10.github.io/WeatherApp/"
-        },
-        {   
-            icon: "📖", 
-            name: "Fakebook", 
-            description: "A social media platform clone with user interactions.",
-            tech: ["jsx", "js", "css", "html", "react", "framermotion", "node", "express", "mongodb"],
-            link: "https://nerii10.github.io/Fakebook/"
-        },
-        {   
-            icon: "🎥", 
-            name: "VideoToGif",
-            description: "Convert videos into GIFs with ease.",
-            tech: ["jsx", "js", "css", "html", "react", "framermotion"],
-            link: "https://nerii10.github.io/VideoToGif/"
-        }
-    ];
-    
-    
-    
-    const [Filtereddata, setFiltereddata] = useState(data)
-    const [Searchname, setSearchname] = useState("")
-    
     useEffect(() => {
-        setFiltereddata(
-            data.filter(project =>
-                project.name.toLowerCase().includes(Searchname.toLowerCase())
-            )
-        );
-    }, [Searchname]);
+        let result = data;
 
-    return(
+        if (Category) {
+            result = result.filter(entry => entry.category === Category);
+            setProjects(result)
+        }
+
+        if (searchName) {
+            result = result.filter(project =>
+                project.name.toLowerCase().includes(searchName.toLowerCase())
+            );
+        }
+
+        setFilteredData(result);
+    }, [searchName, Category]); 
+
+    return (
         <>
-        <div className="ProjectsContainer">
-
-            <div className="Info">
-            </div>
-           
-            <div className="ProjectSearchBar">
-                <input type="text"
-                    onChange={(event) =>{setSearchname(event.target.value)}}
-                    value={Searchname}
-                ></input>
-                <PackageSearch className="ProjectSearchBarIcon" size={20}></PackageSearch>
-                <p className={Searchname.length == 0 ? "ProjectSearchBarText" : "ProjectSearchBarTextActive"}>Search projects</p>
-            </div>
-            
-            <p>Displaying {Filtereddata.length} of {data.length} projects</p>
-            <br></br>
-            
-            {Filtereddata.length != 0 ?
-            <>
-                <div className="Projects">
-                    {Filtereddata.map((entry,index) =>{
-                        return(
-                            <>  
-                                <Websitelink data={entry}></Websitelink>
-                            </>
-                        )
-                    })}
+            <div className="ProjectsContainer">
+                <div className="ProjectSearchBar">
+                    <input
+                        type="text"
+                        onChange={(event) => setSearchName(event.target.value)}
+                        value={searchName}
+                    />
+                    <PackageSearch className="ProjectSearchBarIcon" size={20} />
+                    <p className={searchName.length === 0 ? "ProjectSearchBarText" : "ProjectSearchBarTextActive"}>
+                        Search projects
+                    </p>
                 </div>
-
-            </>: " "}
-            
-           
-       
-       </div>
-        
+                
+                <p>Displaying {filteredData.length} of {Projects.length} projects</p>
+                
+                {filteredData.length !== 0 ? (
+                    <div className="Projects">
+                        {filteredData.map((entry, index) => (
+                            <Websitelink key={index} data={entry} />
+                        ))}
+                    </div>
+                ) : (
+                    <p>No projects found</p>
+                )}
+            </div>
         </>
-    )
+    );
 }

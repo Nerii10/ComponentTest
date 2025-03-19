@@ -4,9 +4,16 @@ import "./ImageSlider.css"
 import { tr } from "framer-motion/client";
 import { ChevronLeft, ChevronRight, Images, Scale } from "lucide-react";
 
-export default function ImageSlider(){
+export default function ImageSlider({Images}){
 
-    const images = ["/Render1.png","/Render2.png", "/Render4.png", "/Render1.png", "/Render6.png",]
+    let images = []
+
+    if(Images) {
+         images = Images
+    } else {
+         images = ["/Render1.png","/Render2.png", "/Render4.png", "/Render1.png", "/Render6.png",]
+    }
+
     const [CurrentSlide, setCurrentSlide] = useState(0)
     
     function SlideChange(x){

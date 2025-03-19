@@ -1,11 +1,19 @@
-.BlenderContainer{
+.SubpageContainer{
     --borderClassic: 1px rgba(255, 255, 255, 0) solid;
     width: 90%;
     height: 100%;
     display: flex;
     max-width: 800px;
     align-items: center;
+    gap: 50px;
     flex-direction: column;
-    gap:50px;
 }
 
+.SiteTopicHeader{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.SiteTopicHeader h1{
+   margin: 0;
+}

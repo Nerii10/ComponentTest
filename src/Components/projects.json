@@ -1,0 +1,60 @@
+[
+
+    {   
+        "icon": "📖", 
+        "name": "Fakebook", 
+        "description": "A social media platform clone with user interactions.",
+        "tech": ["jsx", "js", "css", "html", "react", "framermotion", "node", "express", "mongodb"],
+        "link": "https://nerii10.github.io/Fakebook/",
+        "category": "web"
+    },
+    {   
+        "icon": "🧽", 
+        "name": "Spongebob",
+        "description": "Spongebob is an upcoming mini-game project where you control the famous character, diving into underwater adventures. It's a casual game with fun mechanics that I’m building to showcase my skills in game development.",
+        "tech": ["cpp", "unrealenginewhite", "blender"],
+        "link": "#unrealengine",
+        "category": "game"
+    },
+    {   
+        "icon": "🎬", 
+        "name": "Crime on Film",
+        "description": "Crime on Film - upcoming project.",
+        "tech": ["unrealenginewhite", "blender"],
+        "link": "#unrealengine",
+        "category": "game"
+    },
+    {   
+        "icon": "🎥", 
+        "name": "VideoToGif",
+        "description": "Convert videos into GIFs with ease.",
+        "tech": ["jsx", "js", "css", "html", "react", "framermotion"],
+        "link": "https://nerii10.github.io/VideoToGif/",
+        "category": "web"
+    },
+    {   
+        "icon": "🌤️", 
+        "name": "WeatherApp", 
+        "description": "A weather forecast application using OpenWeather API.",
+        "tech": ["jsx", "js", "css", "html", "react", "framermotion"],
+        "link": "https://nerii10.github.io/WeatherApp/",
+        "category": "web"
+    },
+   
+    {   
+        "icon": "🌳", 
+        "name": "TerrariaWordle", 
+        "description": "Wordle-like game inspired by Terraria.",
+        "tech": ["jsx", "js", "css", "html", "react", "framermotion"],
+        "link": "https://nerii10.github.io/TerrariaWordle/",
+        "category": "web"
+    },
+    {   
+        "icon": "🗡️", 
+        "name": "Sword",
+        "description": "Sword was meant to be my ideal first-person shooter with elements of storyline. It helped me learn most of the core game development concepts in Unreal Engine. Through this project, I explored game mechanics, AI, and integrating a compelling narrative.",
+        "tech": ["unrealenginewhite", "blender"],
+        "link": "#unrealengine",
+        "category": "game"
+    }
+]

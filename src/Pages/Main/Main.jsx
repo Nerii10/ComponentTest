@@ -5,7 +5,7 @@ import Navbar from "../../Components/Navbar"
 import Landing from "../../Components/Landing"
 import Projects from "../../Components/Projects"
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { HashRouter,Link } from "react-router"
 import Footer from "../../Components/Footer"
 
@@ -26,6 +26,7 @@ import { File } from "lucide-react"
 
 export default function Main(){
 
+    
     const [Aboutseen, setAboutseen] = useState(0)
 
     const IconSize = 35;
@@ -251,7 +252,7 @@ export default function Main(){
                 
 
 
-                <div style={{height:"500px"}}>
+                <div style={{height:"200px"}}>
                 </div>
         
         </div>
