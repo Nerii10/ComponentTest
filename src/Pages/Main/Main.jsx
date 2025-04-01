@@ -136,7 +136,7 @@ export default function Main(){
 
     function Highlight({text,delay,marginTop}) {
         return(
-            <span style={{ position: 'relative' }}>
+            <span style={{ position: 'relative', zIndex:1 }}>
             <motion.span
                 style={{
                     position: "absolute",

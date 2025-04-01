@@ -24,6 +24,7 @@ body,html{
   background-color: var(--defaultbackground);
   justify-content: center;
   min-height: 100%;
+  margin: 0;
 }
 
 
