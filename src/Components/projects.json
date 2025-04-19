@@ -56,5 +56,14 @@
         "tech": ["unrealenginewhite", "blender"],
         "link": "#unrealengine",
         "category": "game"
-    }
+    },
+    {
+        "icon": "🍽️",
+        "name": "Restaurant ",
+        "description": "Responsive website for a seaside restaurant serving everything from crispy meat to freshly caught fish.",
+        "tech": ["jsx", "js", "css", "html", "react", "framermotion"],
+        "link": "https://nerii10.github.io/Restauracja/",
+        "category": "web"
+      }
+      
 ]
