@@ -19,20 +19,13 @@ export default function Landing({ScrollTo}){
             style={{color:"white", cursor:"pointer"}}
             animate={{
                 y: ["-10px", "30px"],
-                scale: [1,0.7]
             }}
             transition={{
                 y: {
-                    repeat: Infinity,  // Powtarza animację w nieskończoność
-                    repeatType: "mirror",  // Odbicie animacji (w górę i w dół)
-                    duration: 1,  // Czas trwania animacji osi Y
-                    ease: "circInOut",  // Płynne przejście
-                },
-                scale: {
-                    repeat: Infinity,  // Powtarza animację w nieskończoność
-                    repeatType: "mirror",  // Odbicie animacji (w górę i w dół)
-                    duration: 1,  // Czas trwania animacji osi Y
-                    ease: "circInOut",  // Płynne przejście
+                    repeat: Infinity, 
+                    repeatType: "mirror",  
+                    duration: 1,  
+                    ease: "circInOut",  
                 },
                 duration:0.3,
                 ease:"circInOut"

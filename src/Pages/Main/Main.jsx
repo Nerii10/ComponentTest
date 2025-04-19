@@ -245,7 +245,7 @@ export default function Main(){
                         <h1 style={{display:'flex', alignItems:"center", gap:"10px",margin:0}} ><File size={30}></File>Most recent projects</h1>
                         <hr className="HrFade"></hr>
                     </div>
-                    <Projects></Projects>
+                    <Projects ></Projects>
                 </div>
                 
                 

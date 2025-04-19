@@ -16,6 +16,8 @@ export default function Projects({ Category }) {
         if (Category) {
             result = result.filter(entry => entry.category === Category);
             setProjects(result)
+        } else {
+            setProjects(data)
         }
 
         if (searchName) {
@@ -41,7 +43,7 @@ export default function Projects({ Category }) {
                         Search projects
                     </p>
                 </div>
-                
+
                 <p>Displaying {filteredData.length} of {Projects.length} projects</p>
                 
                 {filteredData.length !== 0 ? (
