@@ -43,10 +43,10 @@
    
     {   
         "icon": "🌳", 
-        "name": "TerrariaWordle", 
-        "description": "Wordle-like game inspired by Terraria.",
+        "name": "Terraverse", 
+        "description": "Terraria wiki, Wordle-like game",
         "tech": ["jsx", "js", "css", "html", "react", "framermotion"],
-        "link": "https://nerii10.github.io/TerrariaWordle/",
+        "link": "https://nerii10.github.io/Terraverse/",
         "category": "web"
     },
     {   

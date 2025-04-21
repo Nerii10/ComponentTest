@@ -30,15 +30,15 @@ export default function Landing({ScrollTo}){
                 duration:0.3,
                 ease:"circInOut"
             }}
-            onPointerUp={() => {
-                const Main = document.getElementById(ScrollTo);
-                if (Main) {
-                    window.scrollTo({
-                        top: Main.offsetTop - 80,
-                        behavior: "smooth",
-                    });
-                }
-            }}
+            // onPointerUp={() => {
+            //     const Main = document.getElementById(ScrollTo);
+            //     if (Main) {
+            //         window.scrollTo({
+            //             top: Main.offsetTop - 80,
+            //             behavior: "smooth",
+            //         });
+            //     }
+            // }}
     
     
 >
