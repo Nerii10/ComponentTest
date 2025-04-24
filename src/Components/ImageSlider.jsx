@@ -61,7 +61,7 @@ export default function ImageSlider({Images}){
                         return( 
                             <div className="ImageContainer">
                                 <div className="Image">
-                                    <img src={`/ComponentTest/${image}`}></img>
+                                    <img src={`${image}`}></img>
                                 </div>
                             </div>
                         )
@@ -78,12 +78,12 @@ export default function ImageSlider({Images}){
                         {
                             return(
                                 <div className="PreviewImageContainer">
-                                    {index != 3 ? <motion.img src={`/ComponentTest/${image}`} 
+                                    {index != 3 ? <motion.img src={`${image}`} 
                                     onClick={()=>{setCurrentSlide(index)}} 
                                     className={CurrentSlide == index || index == 3 && CurrentSlide >=3? "ActiveImage": "Image"}
                                     ></motion.img>:
                                     
-                                    <><motion.img src={`/ComponentTest/${image}`} 
+                                    <><motion.img src={`${image}`} 
                                     onClick={()=>{setCurrentSlide(index)}} 
                                     className={CurrentSlide == index || index == 3 && CurrentSlide >=3? "ActiveLastImage": "LastImage"}
                                     ></motion.img>

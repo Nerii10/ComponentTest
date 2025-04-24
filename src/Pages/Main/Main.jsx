@@ -227,7 +227,7 @@ export default function Main(){
                                     <p  style={{margin:0, }} className="TechnologyContainer">{element.skills.map((skill,index)=>{
                                         return(
                                             <p style={{display:"flex",alignItems:"center",gap: "10px"}} className="TechnologyEntry"> 
-                                                {skill.logo && <img src={`/ComponentTest/Logo/${skill.logo}`} className="LogoSkill"></img>}
+                                                {skill.logo && <img src={`/Logo/${skill.logo}`} className="LogoSkill"></img>}
                                                {skill.name} {" "} 
                                             </p>
                                         

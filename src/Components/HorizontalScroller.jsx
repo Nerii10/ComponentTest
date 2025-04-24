@@ -13,7 +13,7 @@ export default function HorizontalScroller() {
                             <img 
                                 key={index} 
                                 className="HorizontalScrollerInput" 
-                                src={`/ComponentTest/Logo/${ListItem}.png`} 
+                                src={`/Logo/${ListItem}.png`} 
                                 alt={ListItem} 
                             />
                         ))}
