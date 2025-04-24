@@ -17,7 +17,7 @@ export default function Websitelink({ data }) {
                 <div className="Bottom">
                     {data.tech?.map((element,index)=>{
                         return(
-                            <img src={`/ComponentTest/Logo/${element}.png`} className='Logo'></img>
+                            <img src={`/Logo/${element}.png`} className='Logo'></img>
                         )
                     })}
                 </div>
