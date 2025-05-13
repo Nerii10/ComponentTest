@@ -1,6 +1,14 @@
 [
 
     {   
+        "icon": "🧾", 
+        "name": "Invoice Registry", 
+        "description": "A secure and intuitive app for tracking invoices, managing clients, and organizing company structure — built for teams.",
+        "tech": ["jsx", "js", "css", "html", "react", "framermotion", "node", "express", "mongodb"],
+        "link": "https://nerii10.github.io/InvoiceRegistry/",
+        "category": "web"
+    },
+    {   
         "icon": "📖", 
         "name": "Fakebook", 
         "description": "A social media platform clone with user interactions.",
